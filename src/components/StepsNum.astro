@@ -1,0 +1,16 @@
+---
+interface Props {
+	numero: string;
+    titulo: string;
+    descripcion: string;
+}
+
+const { numero,titulo,descripcion } = Astro.props;
+---
+<div class="timeline" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
+    <a href="#contact" class="timeline-content">
+        <span class="year">{numero}º</span>
+        <h3 class="title">{titulo}</h3>
+        <p class="description">{descripcion}</p>
+    </a>
+</div>

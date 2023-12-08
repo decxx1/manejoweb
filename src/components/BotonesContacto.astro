@@ -1,0 +1,91 @@
+<script>
+    let htmlMsn = '';
+    
+    function detectIsMobile() {
+      const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+      return regex.test(navigator.userAgent);
+    }
+    
+    if (detectIsMobile()) {
+        htmlMsn = `<a id='msncel' href='https://m.me/MarGocomunicacion' class='tooltip--left messenger-color' data-tooltip='Facebook' target='_blank'><i class='fab fa-facebook-messenger'></i></a>`;
+    } else {
+        htmlMsn = `<a id='msn' class='tooltip--left messenger-color' data-tooltip='Facebook'><i class='fab fa-facebook-messenger'></i></a><div id='fb-chat'>
+                <div class='close'>X</div>
+                    <iframe src='https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/MarGocomunicacion&tabs=messages&width=300&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=385423118195111' width='300' height='300' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
+                </div>`;
+    }
+    var mainDiv = document.getElementById("main-div");
+    
+    mainDiv.innerHTML += htmlMsn;
+    //botones de comunicación
+    var mainDiv = document.getElementById('main-button');
+    mainDiv.addEventListener('click', function(){
+        this.children.item(0).classList.toggle('fa-times');
+        this.classList.toggle('open');
+    });
+    // Facebook chat
+    var msn = document.getElementById('msn');
+    var fbChat = document.getElementById('fb-chat');
+    var closeBtn = document.querySelector('#fb-chat .close');
+
+    function handleClick(e) {
+        e.preventDefault();
+        if (e.type === 'touchstart') {
+            if (fbChat.classList.contains('active')) {
+                fbChat.classList.remove('active');
+            } else {
+                fbChat.classList.add('active');
+            }
+        } else if (e.type === 'click') {
+            if (fbChat.classList.contains('active')) {
+                fbChat.classList.remove('active');
+            } else {
+                fbChat.classList.add('active');
+            }
+        }
+    }
+
+    msn.addEventListener('click', handleClick);
+    msn.addEventListener('touchstart', handleClick);
+    closeBtn.addEventListener('click', handleClick);
+</script>
+<!-- Footer End -->
+<div class="wrapper">
+    <div id="main-div">
+    <div id="main-button" class="tooltip--left wave" data-tooltip="Escríbanos">
+        <i class="fas fa-comments"></i>
+    </div>
+        <a class="tooltip--left telegram-color" id="btn-abrir-popup" data-tooltip="E-mail"><i class="far fa-envelope"></i></a>
+        <a target="_blanck" href="https://wa.me/542612455960" class="tooltip--left whatsapp-color" data-tooltip="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</div>
+  <!-- formulario de contacto-->
+<div class="overlay" id="overlay">
+    <div class="popup" id="popup">
+        <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fa fa-times"></i></a>
+        <div class="title text-center">
+            <h6 class="title-primary" id="precios">Contacto</h6>
+            <h3 class="title-blue">Envianos un e-mail</h3>
+        </div>
+        <!-- Formulario -->
+        <form method="post" name="contacto" id ="newsletterForm" role="form">
+            <div class="col-md-6">
+                <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre" required />
+            </div>
+            <div class="col-md-6">
+                <input name="email" type="email" class="form-control" id="email" placeholder="Email" required />
+            </div>
+            <div class="col-md-6">
+                <input name="telefono" type="tel" class="form-control" id="telefono" placeholder="Teléfono" required />
+            </div>
+            <div class="col-md-12">
+                <textarea name="mensaje" class="form-control" id="mensaje" placeholder="mensaje" rows="6" required></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+                <button type="submit" class="contact-button">Enviar Mensaje</button>
+            </div>
+        </form>
+    <!-- Formulario End -->
+    </div>
+</div>

@@ -1,0 +1,19 @@
+---
+interface Props {
+	titulo: string;
+}
+
+const { titulo } = Astro.props;
+---
+<!-- Recent Posts Start -->
+<section class="recent-posts">
+    <div class="container">
+        <div class="title">
+            <h3 class="title-blue" style="margin-bottom:20px;" data-aos="fade-down" data-aos-duration="800">{titulo}</h3>
+        </div>
+        <div class="row">
+            <slot />
+        </div>
+    </div>
+</section>
+<!-- Recent Posts End -->

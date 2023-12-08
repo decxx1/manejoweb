@@ -1,0 +1,17 @@
+---
+interface Props {
+	colClass: string;
+}
+
+const { colClass } = Astro.props;
+---
+
+<div class={colClass}>
+    <div class="media" data-aos="fade-up" data-aos-delay="200" data-aos-duration="400">
+    <slot name="imagen" />
+        <div class="media-body">
+            <slot name="titulo" />
+            <slot name="descripcion" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+---
+interface Props {
+	titulo: string;
+}
+
+const { titulo } = Astro.props;
+---
+<!-- Trust Start -->
+<section class="trust">
+    <div class="container">
+        <div class="title">
+            <h6 class="title-primary">{titulo}</h6>
+            <h2 class="title-blue text-white">Preguntas frecuentes</h2>
+        </div>
+        <div class="row">
+        <div class="offset-xl-1 col-xl-6">
+          <slot />
+        </div>
+    </div>
+  </div>
+</section>
+<!-- Trust End -->

@@ -1,0 +1,27 @@
+---
+interface Props {
+  numero: string;
+  pregunta: string;
+  respuesta: string;
+}
+
+const { numero,pregunta,respuesta } = Astro.props;
+const href = '#collapse' + numero;
+const id = 'collapse' + numero;
+---
+<div class="component-accordion" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
+    <div class="panel-group" id="accordion" role="tablist">
+      <div class="panel">
+        <div class="panel-heading" role="tab" id="headingOne">
+          <h2 class="panel-title">
+            <a role="button" data-toggle="collapse" href={href} aria-expanded="false" aria-controls={id} class="collapsed">{pregunta}</a>
+          </h2>
+        </div>
+        <div id={id} class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;" data-parent="#accordion">
+            <div class="panel-body">
+                <p>{respuesta}</p>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

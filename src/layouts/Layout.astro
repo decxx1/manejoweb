@@ -1,51 +1,154 @@
 ---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Head from '../components/Head.astro';
+
+
 interface Props {
 	title: string;
+	canonical: string;
+	metaTitle: string;
+	metaDescription: string;
+	metaImg: string;
+	bodyClass: string;
 }
 
-const { title } = Astro.props;
----
+const { 
+	title,
+	canonical,
+	metaTitle,
+	metaDescription,
+	metaImg,
+	bodyClass
+} = Astro.props;
 
+---
+<script>
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+	//recaptcha
+	$('#newsletterForm').submit(function(event) {
+        event.preventDefault();
+        var nombre = $('#nombre').val();
+		var email = $('#email').val();
+		var telefono = $('#telefono').val();
+		var mensaje = $('#mensaje').val();
+ 
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6Le7RCgcAAAAADiRK_NZ3EtONMmj7UqKbq0S3w26', {action: 'subscribe_newsletter'}).then(function(token) {
+                $('#newsletterForm').prepend('<input type="hidden" name="token" value="' + token + '">');
+                $('#newsletterForm').prepend('<input type="hidden" name="action" value="subscribe_newsletter">');
+                $('#newsletterForm').unbind('submit').submit();
+            });;
+        });
+	});
+	$("#contactoform").submit(function(e) {
+		e.preventDefault();
+	});
+	
+
+	//main.js
+    $(window).on('load', function () {
+        // == Animate loader off screen == //
+        $(".css-loader").fadeOut("slow");
+        AOS.init({
+            disable: 'mobile'
+        });
+
+    });
+
+</script>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!-- Document title -->
 		<title>{title}</title>
+		<link rel="canonical" href={canonical} />
+		<!-- GOOGLE -->
+		<meta name="title" content={metaTitle} />
+		<meta name="description" content={metaDescription}/>
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="Mon, 01 Jul 1970 00:00:00 GMT" />
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+		 <!-- FACEBOOK OPEN GRAPH TAGS -->
+		<meta property="og:title" content={metaTitle} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={metaImg} />
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@" />
+		<meta name="twitter:title" content={metaTitle} />
+		<meta name="twitter:description" content={metaDescription} />
+		<meta name="twitter:url" content={canonical} />
+		<meta name="twitter:image" content={metaImg} />
+		<!-- HEAD -->
+		<Head />
 	</head>
-	<body>
+	<body class={bodyClass}>
+		<button onclick="topFunction()" id="return-to-top" title="Go to top"><i class="fas fa-chevron-up"></i></button> 
+		<!-- Loader Start -->
+		<div class="css-loader">
+			<div class="loader-inner line-scale d-flex align-items-center justify-content-center"></div>
+			<div class="loader-anim"></div>
+		</div>
+		<!-- Header Start -->
+		<Header />
+		<!-- Content Start -->
 		<slot />
+		<!-- Footer Start -->
+		<Footer />
+		<!--Plugins-->
+		<script src="assets/js/aos.js" is:inline></script>
+		<!--Template Script-->
+		<script src="assets/js/gotop.js" defer="defer" is:inline></script>
+		<!--Popup-->
+		<script src="assets/js/popup.js" defer="defer" is:inline></script>
+		<!--Alertas-->
+		<script src="assets/js/alertas.js" defer="defer" is:inline></script>
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+@media (min-width: 992px) {
+	.hero .slide-content {
+		min-height: 100vh;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+}
+.media-body a h5:hover {
+	color:var(--my-color);
+	text-decoration: none;
+}
+.media-body a:hover {
+	text-decoration: none;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader-anim {
+	position:absolute;
+	right: calc(50% - 37.5px);
+	bottom: 50%;
+	z-index: 99999999;
+	height: 15px;
+	aspect-ratio: 3.5;
+	--_g: no-repeat radial-gradient(farthest-side,#fff 90%,#fff);
+	background:var(--_g), var(--_g), var(--_g), var(--_g);
+	background-size: 15% 50%;
+	animation: l43 1s infinite linear; 
+}
+@keyframes l43 {
+  0%     {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  16.67% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  33.33% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+  50%    {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 50% }
+  66.67% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 0   }
+  83.33% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%}
+  100%   {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% }
+}
+
 </style>

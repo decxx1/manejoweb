@@ -1,0 +1,14 @@
+---
+interface Props {
+	iconClass: string;
+}
+
+const { iconClass } = Astro.props;
+---
+<div class="media">
+    <i class={iconClass}></i>
+    <div class="media-body">
+        <slot name="titulo" />
+        <slot name="descripcion" />
+    </div>
+</div>

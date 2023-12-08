@@ -1,0 +1,35 @@
+---
+interface Props {
+	BGblanco: boolean;
+}
+
+const { BGblanco } = Astro.props;
+
+let clase = "grisesito";
+
+if(BGblanco === true){
+    clase = "blanquito";
+}
+
+---
+ <!-- Featured Start -->
+ <section class={"featured " + clase} >
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
+                <div class="title">
+                    <slot name="subtitulo" />
+                    <slot name="titulo" />
+                </div>
+                <slot name="descripcion" />
+                <div class="media-element d-flex justify-content-between">
+                    <slot />
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left" data-aos-delay="400" data-aos-duration="800">
+                <slot name="imagen" />
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Featured End -->

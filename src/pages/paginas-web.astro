@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import CallToAction from '../components/CallToAction.astro';
+import CardFeatures from '../components/CardFeatures.astro';
+import Featured from '../components/Featured.astro';
+import ElementFeatures from '../components/ElementFeatures.astro';
+import PreciosWeb from '../components/PreciosWeb.vue';
+import RecentPosts from '../components/RecentPosts.astro';
+import RecentPostLeft from '../components/RecentPostLeft.astro';
+import RecentPostRight from '../components/RecentPostRight.astro';
+import Steps from '../components/Steps.astro';
+import StepsNum from '../components/StepsNum.astro';
+import Faq from '../components/Faq.astro';
+import Pregunta from '../components/Pregunta.astro';
+---
+<Layout
+    title="ManejoWeb - Diseño y creación de páginas web"
+    canonical="https://manejoweb.com.ar/paginas-web"
+    metaTitle="Creación de páginas web - ManejoWeb"
+    metaDescription="¿Necesitas una página web atractiva y profesional para tu negocio o emprendimiento? Ofrecemos servicios de creación de sitios web personalizados y diseños actractivos"
+    metaImg="https://manejoweb.com.ar/assets/images/disenio-moderno.jpg"
+    bodyClass=""
+    >
+    
+    <Hero>
+        <h1 slot="titulo" data-aos="fade-right" data-aos-delay="200">Creamos </br><em>páginas web</em> Para su negocio</h1>
+        <p slot="descripcion" data-aos="fade-right" data-aos-delay="600">Si tiene un negocio o emprendimiento en Argentina y quiere tener presencia en la web, ha venido al lugar indicado.</p>
+        <a slot="boton" data-aos="fade-right" data-aos-delay="900" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </Hero>
+
+    <CallToAction>
+        <h2 slot="titulo" >¿Necesita una página web para su negocio?</h2>
+        <p slot="descripcion">Déjenos construirla para usted, con diseños nuevo y modernos, seguridad y velocidad.</p>
+        <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </CallToAction>
+
+    <Services title="Por qué elegirnos">
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/reloj.svg" alt="ahorre dinero">
+            <h5 slot="titulo">Ahorre tiempo</h5>
+            <p slot="descripcion">Le creamos un sitio web, para que muestre toda la información de su negocio al público y pueda publicitarse.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/medalla.svg" alt="calidad">
+            <h5 slot="titulo">Sitio web de calidad</h5>
+            <p slot="descripcion">Creamos y administramos sus redes sociales, Facebook, Instagram etc. Generamos contenido para atraer clientes publicando todas las semanas.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/foco.svg" alt="diseños web unicos">
+            <h5 slot="titulo">Diseños únicos</h5>
+            <p slot="descripcion">Le diseñamos su marca a su estilo, diseño de logos, etiquetas, tarjetas de presentación, cartelería y mucho más. </p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/ventas.svg" alt="subir ventas">
+            <h5 slot="titulo">Aumente las ventas</h5>
+            <p slot="descripcion">Fundamental si quiere atraer más clientes. Publicidad en internet (Buscador de Google, páginas web, redes sociales) clientes asegurados.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/clientes.svg" alt="ganar clientes">
+            <h5 slot="titulo">Consiga más clientes</h5>
+            <p slot="descripcion">Fundamental si quiere atraer más clientes. Publicidad en internet (Buscador de Google, páginas web, redes sociales) clientes asegurados.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/ahorrar.svg" alt="ahorre dinero">
+            <h5 slot="titulo">Ahorre dinero</h5>
+            <p slot="descripcion">Fundamental si quiere atraer más clientes. Publicidad en internet (Buscador de Google, páginas web, redes sociales) clientes asegurados.</p>
+        </CardFeatures>
+    </Services>
+
+    <Featured blanco=false>
+        <h6 slot="subtitulo" class="title-primary">Sobre el diseño</h6>
+        <h2 slot="titulo" class="title-blue">Contenido moderno y diseños únicos para su sitio web</h2>
+        <p slot="descripcion"><strong>Desarrollo web</strong> con programas premium actuales, utilizamos <strong>contenido de calidad</strong> y el mejor <strong>rendimiento</strong> para las páginas, realizamos <strong>diseños webs creativos</strong>, <strong>animaciones llamativas</strong>, <strong>colores</strong>, <strong>imágenes</strong> y fondos <strong>personalizables</strong> para que tu web sea <strong>más atractiva</strong>. Si el cliente lo desea, le <strong>instalamos Wordpress, woocommerce</strong> o algún sistema de gestión de contenidos para que pueda <strong>manejar el sitio fácilmente</strong>. </p>
+        
+        <ElementFeatures iconClass="fas fa-palette mr-4">
+            <h5 slot="titulo">Diseño para:</h5>
+            <p slot="descripcion">Celulares, tabletas, notebooks y PC</p>
+        </ElementFeatures>
+        <ElementFeatures iconClass="fas fa-chart-line mr-4">
+            <h5 slot="titulo">Rendimiento:</h5>
+            <p slot="descripcion">La velocidad y el SEO son primordiales</p>
+        </ElementFeatures>
+        
+        <div slot="imagen" class="featured-img">
+            <img loading="lazy" class="img-fluid" src="assets/images/disenio-web.svg" alt="diseño web moderno">
+        </div>
+    </Featured>
+
+    <RecentPosts titulo="Algunos trabajos nuestros">
+        <RecentPostRight>
+            <time slot="tiempo" datetime="2021-01-10T13:53">2021</time>
+            <h3 slot="titulo" ><a rel="nofollow noopener noreferrer" href="https://kwanying.com.ar/" target="_blank">Kwanying</a></h3>
+            <p slot="descripcion"><a>Centro de Spa</a>, <a>Sitio web</a>, <a>Informativo</a></p>
+            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://kwanying.com.ar" target="_blank"><i class="fa fa-arrow-right"></i></a>
+            
+            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/kwanying-vista-previa.jpg" alt="vista previa pagina kwanying">
+        </RecentPostRight>
+
+        <RecentPostLeft>
+            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/quickly-vista-previa.jpg" alt="vista previa tienda online">
+            
+            <time slot="tiempo" datetime="2021-04-06T13:53">2022</time>
+            <h3 slot="titulo"><a rel="nofollow noopener noreferrer" href="https://quickly.com.ar/" target="_blank">QUICKLY</a></h3>
+            <p slot="descripcion"><a>Imprenta</a>, <a>Web</a>, <a>Informativo</a></p>
+            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://quickly.com.ar/" target="_blank"><i class="fa fa-arrow-right"></i></a>
+        </RecentPostLeft>
+
+        <RecentPostRight>
+            <time slot="tiempo" datetime="2021-01-10T13:53">2021</time>
+            <h3 slot="titulo"><a rel="nofollow noopener noreferrer" href="https://escueladeveranomurialdo.com.ar/" target="_blank">Escuela de verano - Club Leonardo Murialdo</a></h3>
+            <p slot="descripcion"><a>Escuela de Verano</a>, <a>Sitio web</a>, <a>Informativo</a></p>
+            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://escueladeveranomurialdo.com.ar" target="_blank"><i class="fa fa-arrow-right"></i></a>
+
+            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/escuela-de-verano.jpg" alt="vista previa pagina escueladeveranomurialdo">
+        </RecentPostRight>
+            
+        <RecentPostLeft>
+            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/blocke-vista-previa.jpg" alt="vista previa blocke">
+            
+            <time slot="tiempo" datetime="2022-04-06T13:53">2022</time>
+            <h3 slot="titulo"><a rel="nofollow noopener noreferrer" href="https://blockeargentina.com" target="_blank">Blocke - Revestimientos Anti-humedad</a></h3>
+            <p slot="descripcion"><a>Revestimientos antihumedad</a>, <a>Web y tienda</a>, <a>Informativo</a></p>
+            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://blockeargentina.com" target="_blank"><i class="fa fa-arrow-right"></i></a>
+        </RecentPostLeft>
+    </RecentPosts>
+
+    <Featured blanco=false>
+        <h6 slot="subtitulo" class="title-primary">Venda sus productos online</h6>
+        <h2 slot="titulo" class="title-blue">Tienda online para su negocio</h2>
+        <p slot="descripcion">Creamos una <strong>página web profesional</strong> que tenga toda la información de su negocio y la <strong>tienda</strong> donde muestre todos sus <strong>productos a la venta</strong>. <strong>Fácil de usar</strong> para las personas que no tengan conocimientos de desarrollo, similar al funcionamiento de "<strong>tiendanube</strong>".</br>Contamos con <strong>distintos métodos de pago</strong> para que resulte más fácil la compra de tus productos, <strong>sistema de envíos</strong>, <strong>sistema de cupones de descuentos</strong>, puede <strong>administrar los clientes</strong> que compran y las <strong>ventas que realiza</strong> para tener un <strong>control del stock</strong> disponible.</br> En cualquier momento puede <strong>editar el sitio</strong>, información, fotos, teléfonos etc.</br>
+            Le dejamos el <strong>sitio listo para empezar a vender</strong>, y si en un futuro quiere <strong>agregar más productos</strong> o <strong>cambiar los precios</strong> puede hacerlo desde una <strong>interfaz muy amigable</strong> desde la pc o el teléfono. </p>
+        
+        <ElementFeatures iconClass="fas fa-shopping-cart mr-4">
+            <h5 slot="titulo">Venta online:</h5>
+            <p slot="descripcion">Cree un catálogo de venta de todos sus productos.</p>
+        </ElementFeatures>
+        <ElementFeatures iconClass="far fa-handshake mr-4">
+            <h5 slot="titulo">Todo listo:</h5>
+            <p slot="descripcion">Solo deberá despachar los productos cuando se realice una compra.</p>
+        </ElementFeatures>
+      
+        <div slot="imagen" class="featured-img2">
+            <img loading="lazy" class="img-fluid" src="assets/images/tienda-online.svg" alt="imagen sobre tiendas online">
+        </div>
+    </Featured>
+
+    <CallToAction>
+        <h2 slot="titulo" >¿Necesita un community manager para su negocio?</h2>
+        <p slot="descripcion"> Nosotros creamos y administramos sus redes sociales y sitios web.</p>
+        <a slot="boton" href="./administrar-redes-sociales" class="btn btn-primary">Ver más</a>
+    </CallToAction>
+
+    <PreciosWeb  client:load />
+
+    <Steps>
+        <h2 slot="titulo" class="font-weight-bold display-4" data-aos="fade-down" data-aos-duration="800">¿Cómo <span style=" color: var(--my-color)">trabajamos?</span></h2>
+        <StepsNum 
+            numero="1"
+            titulo="Contacto por teléfono"
+            descripcion="Realizamos una entrevista, donde le preguntaremos cómo quiere la página y cuáles son sus necesidades."
+        />
+        <StepsNum 
+            numero="2"
+            titulo="Desarrollo del sitio web"
+            descripcion="Alrededor de los 10 días preparamos el desarrollo de su sitio web, de acuerdo a sus gustos, preferencias y lo que más necesite su negocio."
+        />
+        <StepsNum 
+            numero="3"
+            titulo="Finalización del trabajo"
+            descripcion="Le presentamos como quedó el sitio configurado para su negocio, luego terminamos los detalles y cambios que quiera hacerle."
+        />
+    </Steps>
+ 
+    <Featured BGblanco={true} >
+        <h6 slot="subtitulo" class="title-primary">Programas online</h6>
+        <h2 slot="titulo" class="title-blue">Software empresariales para pequeñas, medianas y grandes empresas.</h2>
+        <p slot="descripcion">Si tiene un negocio y quiere <strong>administrar las finanzas y productos</strong> desde su <strong>computadora, celular o tablet</strong> y desde cualquier lugar con conexión a internet,</br> le <strong>instalamos un programa</strong> para que pueda gestionar <strong>desde su web</strong> la <strong>facturación, contabilidad, gestión de inventarios, almacenes, fabricación y proyectos</strong> entre otros.</p>
+        
+        <ElementFeatures iconClass="fas fa-calculator mr-4">
+            <h5 slot="titulo">Gestion:</h5>
+            <p slot="descripcion">Facturación, Inventario, contabilidad, productos.</p>
+        </ElementFeatures>
+        <ElementFeatures iconClass="fas fa-magic mr-4">
+            <h5 slot="titulo">Personalizado:</h5>
+            <p slot="descripcion">Desarrollo adaptado al cliente.</p>
+        </ElementFeatures>
+
+        <div slot="imagen" class="featured-img2">
+            <img loading="lazy" class="img-fluid" src="assets/images/facturacion.svg" alt="imagen de facturación">
+        </div>
+    </Featured>
+
+    <Faq titulo="Sobre páginas web">
+        <Pregunta 
+            numero="1"
+            pregunta="¿ Qué son las paginas web ?"
+            respuesta="Una <strong>página web</strong>, página digital o página electrónica, es <strong>un sitio</strong> donde se puede <strong>ver contenido</strong> de texto, sonido, video, imagen, programas, links entre otras cosas. Este sitio <strong>está compuesto</strong> por el <strong>Dominio</strong> (El nombre del sitio web) y la <strong>información</strong> que está almacenada en el <strong>Hosting</strong> (Servidor físico donde se encuentran las imágenes, textos, videos...)."
+        />
+        <Pregunta
+            numero="2"
+            pregunta="¿ Cuánto cuesta ?"
+            respuesta="El presupuesto se determina según la complejidad de la web, el precio actual del dominio que necesite (.com, .com.ar, .net, .online, etc.), y el precio actual de los servidores de hosting, aunque siempre existen promociones y convenios con las empresas externas."
+        />
+        <Pregunta
+            numero="3"
+            pregunta="¿ Qué incluye Diseñar y Crear paginas web ?"
+            respuesta="Existen infinidad de <strong>diseños temáticos</strong> que puede <strong>personalizar</strong>, como páginas para gimnasios, restaurantes, venta de ropa, inmobiliarias, arquitectura, autos, pintura, música, artes, cocina etc... Principalmente deberá <strong>elegir el dominio</strong> (el nombre de la página) si todavía no tiene uno, la <strong>creación</strong> de la web depende si la necesita para <strong>vender productos</strong>, <strong>publicitar un lugar, una marca, una persona o un servicio.</strong>"
+        />
+        <Pregunta
+            numero="4"
+            pregunta="¿ Qué es web informativa o para publicitar ?"
+            respuesta="Una web <strong>informativa</strong> es aquella que pretende <strong>brindar información</strong> y contenido <strong>sobre un tema, trabajo o servicio específico</strong>. El <strong>objetivo</strong> principal es que <strong>conozcan su contenido</strong> y al mismo tiempo puede <strong>conseguir llamadas o clientes potenciales</strong>.  Este sería un ejemplo: <a rel='nofollow noopener noreferrer' href='https://kwanying.com.ar' target='_blank'>Kwanying</a>."
+        />
+        <Pregunta
+            numero="5"
+            pregunta="¿ Qué es Tienda online?"
+            respuesta="En este tipo de webs el único <strong>objetivo</strong> es <strong>vender productos</strong> por internet de forma <strong>online</strong> (comercio electrónico, o E-commerce), los <strong>productos</strong> que se muestran son productos <strong>disponibles</strong> y con el <strong>precio</strong> actualizado al día. Son <strong>más costosas</strong> y necesitan constante <strong>mantenimiento y administración</strong>."
+        />
+    </Faq>
+
+    <CallToAction>
+        <h2 slot="titulo" >Desarrollo web</h2>
+        <p slot="descripcion"> Desarrollamos páginas webs profesionales</p>
+        <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </CallToAction>
+</Layout>
