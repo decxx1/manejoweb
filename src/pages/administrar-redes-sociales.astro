@@ -16,56 +16,41 @@ import Faq from '../components/Faq.astro';
 import Pregunta from '../components/Pregunta.astro';
 ---
 <Layout
-    title="ManejoWeb - Diseño y creación de páginas web"
-    canonical="https://manejoweb.com.ar/paginas-web"
-    metaTitle="Creación de páginas web - ManejoWeb"
-    metaDescription="¿Necesitas una página web atractiva y profesional para tu negocio o emprendimiento? Ofrecemos servicios de creación de sitios web personalizados y diseños actractivos"
-    metaImg="https://manejoweb.com.ar/assets/images/disenio-moderno.jpg"
-    bodyClass=""
+    title="ManejoWeb - Creación y administración de redes sociales"
+    canonical="https://manejoweb.com.ar/administrar-redes-sociales"
+    metaTitle="Redes sociales para tu negocio 🚀 - ManejoWeb"
+    metaDescription="Aproveche el poder de las redes sociales para atraer y fidelizar a más clientes. Generamos contenido de calidad y relevante para tus redes sociales"
+    metaImg="https://manejoweb.com.ar/assets/images/fondo-redes.jpg"
+    bodyClass="body-redes"
     >
     
     <Hero>
-        <h1 slot="titulo" data-aos="fade-right" data-aos-delay="200">Creamos </br><em>páginas web</em> Para su negocio</h1>
-        <p slot="descripcion" data-aos="fade-right" data-aos-delay="600">Si tiene un negocio o emprendimiento en Argentina y quiere tener presencia en la web, ha venido al lugar indicado.</p>
+        <h1 slot="titulo" data-aos="fade-right" data-aos-delay="200">Creamos y Administramos<br>tus <em>redes sociales</em></h1>
+        <p slot="descripcion" data-aos="fade-right" data-aos-delay="600">Generamos contenido de calidad para que consigas más clientes fidelizados y más ventas.</p>
         <a slot="boton" data-aos="fade-right" data-aos-delay="900" href="#contact" class="btn btn-primary">Contáctenos</a>
     </Hero>
 
     <CallToAction>
-        <h2 slot="titulo" >¿Necesita una página web para su negocio?</h2>
-        <p slot="descripcion">Déjenos construirla para usted, con diseños nuevo y modernos, seguridad y velocidad.</p>
+        <h2 slot="titulo" >¿Necesita un community manager para su negocio?</h2>
+        <p slot="descripcion">Nosotros administramos sus redes sociales por usted, estudiamos su negocio para crear contenido original y de calidad.</p>
         <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
     </CallToAction>
 
-    <Services title="Por qué elegirnos">
+    <Services title="¿Qué herramientas ayudan a potenciar su marca?">
         <CardFeatures colClass='col-sm-6 col-lg-4'>
-            <img slot="imagen" src="assets/images/reloj.svg" alt="ahorre dinero">
-            <h5 slot="titulo">Ahorre tiempo</h5>
-            <p slot="descripcion">Le creamos un sitio web, para que muestre toda la información de su negocio al público y pueda publicitarse.</p>
+            <img slot="imagen" src="assets/images/comunicacion.svg" alt="comunicación">
+            <h5 slot="titulo">Comunicación</h5>
+            <p slot="descripcion">Estudiamos cómo debe llegar el mensaje, como también al público que va dirigido, para que las personas se interesen y quieran conocerlos.</p>
         </CardFeatures>
         <CardFeatures colClass='col-sm-6 col-lg-4'>
-            <img slot="imagen" src="assets/images/medalla.svg" alt="calidad">
-            <h5 slot="titulo">Sitio web de calidad</h5>
-            <p slot="descripcion">Creamos y administramos sus redes sociales, Facebook, Instagram etc. Generamos contenido para atraer clientes publicando todas las semanas.</p>
+            <img slot="imagen" src="assets/images/redessociales.svg" alt="redes sociales">
+            <h5 slot="titulo">Redes sociales</h5>
+            <p slot="descripcion">Utilizamos las redes sociales más usadas por las personas como son: Instagram, Facebook y Twitter, porque son los medios donde más interactuarán con ustedes.</p>
         </CardFeatures>
         <CardFeatures colClass='col-sm-6 col-lg-4'>
-            <img slot="imagen" src="assets/images/foco.svg" alt="diseños web unicos">
-            <h5 slot="titulo">Diseños únicos</h5>
-            <p slot="descripcion">Le diseñamos su marca a su estilo, diseño de logos, etiquetas, tarjetas de presentación, cartelería y mucho más. </p>
-        </CardFeatures>
-        <CardFeatures colClass='col-sm-6 col-lg-4'>
-            <img slot="imagen" src="assets/images/ventas.svg" alt="subir ventas">
-            <h5 slot="titulo">Aumente las ventas</h5>
-            <p slot="descripcion">Fundamental si quiere atraer más clientes. Publicidad en internet (Buscador de Google, páginas web, redes sociales) clientes asegurados.</p>
-        </CardFeatures>
-        <CardFeatures colClass='col-sm-6 col-lg-4'>
-            <img slot="imagen" src="assets/images/clientes.svg" alt="ganar clientes">
-            <h5 slot="titulo">Consiga más clientes</h5>
-            <p slot="descripcion">Fundamental si quiere atraer más clientes. Publicidad en internet (Buscador de Google, páginas web, redes sociales) clientes asegurados.</p>
-        </CardFeatures>
-        <CardFeatures colClass='col-sm-6 col-lg-4'>
-            <img slot="imagen" src="assets/images/ahorrar.svg" alt="ahorre dinero">
-            <h5 slot="titulo">Ahorre dinero</h5>
-            <p slot="descripcion">Fundamental si quiere atraer más clientes. Publicidad en internet (Buscador de Google, páginas web, redes sociales) clientes asegurados.</p>
+            <img slot="imagen" src="assets/images/disenio.svg" alt="Flyers">
+            <h5 slot="titulo">Diseño</h5>
+            <p slot="descripcion">A través del diseño damos soluciones a los usuarios, mediante contenido previamente estudiado y enfocado a los mismos, y de esta forma tengan la necesidad de conocerlos.</p>
         </CardFeatures>
     </Services>
 
@@ -126,7 +111,7 @@ import Pregunta from '../components/Pregunta.astro';
         </RecentPostLeft>
     </RecentPosts>
 
-    <Featured BGblanco={false}>
+    <Featured blanco=false>
         <h6 slot="subtitulo" class="title-primary">Venda sus productos online</h6>
         <h2 slot="titulo" class="title-blue">Tienda online para su negocio</h2>
         <p slot="descripcion">Creamos una <strong>página web profesional</strong> que tenga toda la información de su negocio y la <strong>tienda</strong> donde muestre todos sus <strong>productos a la venta</strong>. <strong>Fácil de usar</strong> para las personas que no tengan conocimientos de desarrollo, similar al funcionamiento de "<strong>tiendanube</strong>".</br>Contamos con <strong>distintos métodos de pago</strong> para que resulte más fácil la compra de tus productos, <strong>sistema de envíos</strong>, <strong>sistema de cupones de descuentos</strong>, puede <strong>administrar los clientes</strong> que compran y las <strong>ventas que realiza</strong> para tener un <strong>control del stock</strong> disponible.</br> En cualquier momento puede <strong>editar el sitio</strong>, información, fotos, teléfonos etc.</br>
