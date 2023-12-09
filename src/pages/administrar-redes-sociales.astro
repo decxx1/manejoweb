@@ -6,12 +6,12 @@ import CallToAction from '../components/CallToAction.astro';
 import CardFeatures from '../components/CardFeatures.astro';
 import Featured from '../components/Featured.astro';
 import ElementFeatures from '../components/ElementFeatures.astro';
-import PreciosWeb from '../components/PreciosWeb.vue';
+import PreciosRedes from '../components/PreciosRedes.vue';
 import RecentPosts from '../components/RecentPosts.astro';
 import RecentPostLeft from '../components/RecentPostLeft.astro';
 import RecentPostRight from '../components/RecentPostRight.astro';
-import Steps from '../components/Steps.astro';
-import StepsNum from '../components/StepsNum.astro';
+import Steps2 from '../components/Steps2.astro';
+import Steps2Num from '../components/Steps2Num.astro';
 import Faq from '../components/Faq.astro';
 import Pregunta from '../components/Pregunta.astro';
 ---
@@ -55,63 +55,87 @@ import Pregunta from '../components/Pregunta.astro';
     </Services>
 
     <Featured BGblanco={false}>
-        <h6 slot="subtitulo" class="title-primary">Sobre el diseño</h6>
-        <h2 slot="titulo" class="title-blue">Contenido moderno y diseños únicos para su sitio web</h2>
-        <p slot="descripcion"><strong>Desarrollo web</strong> con programas premium actuales, utilizamos <strong>contenido de calidad</strong> y el mejor <strong>rendimiento</strong> para las páginas, realizamos <strong>diseños webs creativos</strong>, <strong>animaciones llamativas</strong>, <strong>colores</strong>, <strong>imágenes</strong> y fondos <strong>personalizables</strong> para que tu web sea <strong>más atractiva</strong>. Si el cliente lo desea, le <strong>instalamos Wordpress, woocommerce</strong> o algún sistema de gestión de contenidos para que pueda <strong>manejar el sitio fácilmente</strong>. </p>
+        <h6 slot="subtitulo" class="title-primary">Sobre la red social</h6>
+        <h2 slot="titulo" class="title-blue">Conseguir seguidores y visitas en sus redes sociales.</h2>
+        <p slot="descripcion">A través de estrategias de <strong>comunicación y diseño</strong> creamos contenido capaz de <strong>atraer</strong> e incitar al público objetivo a <strong>conocer su negocio</strong>, esto guiará a que <strong>su imagen</strong> y <strong>sus productos</strong> <strong>se posicionen</strong> en las <strong>redes sociales</strong>, de esta forma <strong>potenciaremos el crecimiento de su marca</strong> y crecerá en el mercado, para que pueda conseguir <strong>más clientes</strong><strong> y ventas potenciales</strong>.</p>
         
         <ElementFeatures iconClass="fas fa-palette mr-4">
-            <h5 slot="titulo">Diseño para:</h5>
-            <p slot="descripcion">Celulares, tabletas, notebooks y PC</p>
+            <h5 slot="titulo">Más Likes:</h5>
+            <p slot="descripcion">Obtenga muchos "Me gusta".</p>
         </ElementFeatures>
         <ElementFeatures iconClass="fas fa-chart-line mr-4">
-            <h5 slot="titulo">Rendimiento:</h5>
-            <p slot="descripcion">La velocidad y el SEO son primordiales</p>
+            <h5 slot="titulo">Más seguidores:</h5>
+            <p slot="descripcion">Los seguidores son clientes potenciales.</p>
         </ElementFeatures>
         
-        <div slot="imagen" class="featured-img">
-            <img loading="lazy" class="img-fluid" src="assets/images/disenio-web.svg" alt="diseño web moderno">
+        <div slot="imagen" class="featured-img2">
+            <img loading="lazy" class="img-fluid" src="./assets/images/social.svg" alt="redes sociales">
         </div>
     </Featured>
 
-    <RecentPosts titulo="Algunos trabajos nuestros">
-        <RecentPostRight>
-            <time slot="tiempo" datetime="2021-01-10T13:53">2021</time>
-            <h3 slot="titulo" ><a rel="nofollow noopener noreferrer" href="https://kwanying.com.ar/" target="_blank">Kwanying</a></h3>
-            <p slot="descripcion"><a>Centro de Spa</a>, <a>Sitio web</a>, <a>Informativo</a></p>
-            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://kwanying.com.ar" target="_blank"><i class="fa fa-arrow-right"></i></a>
-            
-            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/kwanying-vista-previa.jpg" alt="vista previa pagina kwanying">
-        </RecentPostRight>
+    <!-- Services Start -->
+    <section class="services">
+        <div class="container">
+            <div class="title text-center">
+                <h2 class="title-blue" data-aos="fade-down" data-aos-delay="200" data-aos-duration="800">Redes sociales más usadas</h2>
+            </div>
+			<div class="row">
+				<div class="col">
+					<div class="redes" data-aos="fade-down" data-aos-delay="600" data-aos-duration="800">
+						<h4>Instagram</h4>
+						<img src="assets/images/instagram.svg" alt="instagram">
+					</div>
+				</div>
+				<div class="col">
+					<div class="redes" data-aos="fade-down" data-aos-delay="900" data-aos-duration="800">
+						<h4>Facebook</h4>
+						<img src="assets/images/facebook.svg" alt="facebook">
+					</div>
+				</div>
+				<div class="col">
+					<div class="redes" data-aos="fade-down" data-aos-delay="1200" data-aos-duration="800">
+						<h4>Twitter</h4>
+						<img src="assets/images/twitter.svg" alt="twitter">
+					</div>
+				</div>
+				<div class="col">
+					<div class="redes" data-aos="fade-down" data-aos-delay="1500" data-aos-duration="800">
+						<h4>YouTube</h4>
+						<img src="assets/images/youtube.svg" alt="You Tube">
+					</div>
+				</div>
+				<div class="col">
+					<div class="redes" data-aos="fade-down" data-aos-delay="1800" data-aos-duration="800">
+						<h4>WhatsApp</h4>
+						<img src="assets/images/whatsapp.svg" alt="whatsapp">
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>
+    <!-- Services End -->
+    <PreciosRedes  client:load />
 
-        <RecentPostLeft>
-            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/quickly-vista-previa.jpg" alt="vista previa tienda online">
-            
-            <time slot="tiempo" datetime="2021-04-06T13:53">2022</time>
-            <h3 slot="titulo"><a rel="nofollow noopener noreferrer" href="https://quickly.com.ar/" target="_blank">QUICKLY</a></h3>
-            <p slot="descripcion"><a>Imprenta</a>, <a>Web</a>, <a>Informativo</a></p>
-            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://quickly.com.ar/" target="_blank"><i class="fa fa-arrow-right"></i></a>
-        </RecentPostLeft>
+    <Steps2>
+        <h2 slot="titulo" class="font-weight-bold display-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">¿Cómo <span style=" color: var(--my-color)">trabajamos?</span></h2>
+        <Steps2Num
+            numero="1"
+            titulo="Contacta con nosotros"
+            descripcion="Realizamos una entrevista por teléfono o videollamada, le hacemos preguntas con respecto a su negocio y su situación con los medios. Luego estudiamos las posibilidades."
+        />
+        <Steps2Num 
+            numero="2"
+            titulo="Propuestas"
+            descripcion="Después de crear y configurar las redes (si es necesario) Le presentamos distintos diseños para que elija cuál representa más su negocio."
+        />
+        <Steps2Num 
+            numero="3"
+            titulo="Su negocio crece"
+            descripcion="Comenzamos a publicar y ofrecer sus productos o servicios por toda la red."
+        />
+    </Steps2>
 
-        <RecentPostRight>
-            <time slot="tiempo" datetime="2021-01-10T13:53">2021</time>
-            <h3 slot="titulo"><a rel="nofollow noopener noreferrer" href="https://escueladeveranomurialdo.com.ar/" target="_blank">Escuela de verano - Club Leonardo Murialdo</a></h3>
-            <p slot="descripcion"><a>Escuela de Verano</a>, <a>Sitio web</a>, <a>Informativo</a></p>
-            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://escueladeveranomurialdo.com.ar" target="_blank"><i class="fa fa-arrow-right"></i></a>
-
-            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/escuela-de-verano.jpg" alt="vista previa pagina escueladeveranomurialdo">
-        </RecentPostRight>
-            
-        <RecentPostLeft>
-            <img slot="imagen" loading="lazy" class="img-fluid" src="assets/images/blocke-vista-previa.jpg" alt="vista previa blocke">
-            
-            <time slot="tiempo" datetime="2022-04-06T13:53">2022</time>
-            <h3 slot="titulo"><a rel="nofollow noopener noreferrer" href="https://blockeargentina.com" target="_blank">Blocke - Revestimientos Anti-humedad</a></h3>
-            <p slot="descripcion"><a>Revestimientos antihumedad</a>, <a>Web y tienda</a>, <a>Informativo</a></p>
-            <a slot="link" class="post-btn" rel="nofollow noopener noreferrer" href="https://blockeargentina.com" target="_blank"><i class="fa fa-arrow-right"></i></a>
-        </RecentPostLeft>
-    </RecentPosts>
-
-    <Featured blanco=false>
+    <Featured BGblanco={false}>
         <h6 slot="subtitulo" class="title-primary">Venda sus productos online</h6>
         <h2 slot="titulo" class="title-blue">Tienda online para su negocio</h2>
         <p slot="descripcion">Creamos una <strong>página web profesional</strong> que tenga toda la información de su negocio y la <strong>tienda</strong> donde muestre todos sus <strong>productos a la venta</strong>. <strong>Fácil de usar</strong> para las personas que no tengan conocimientos de desarrollo, similar al funcionamiento de "<strong>tiendanube</strong>".</br>Contamos con <strong>distintos métodos de pago</strong> para que resulte más fácil la compra de tus productos, <strong>sistema de envíos</strong>, <strong>sistema de cupones de descuentos</strong>, puede <strong>administrar los clientes</strong> que compran y las <strong>ventas que realiza</strong> para tener un <strong>control del stock</strong> disponible.</br> En cualquier momento puede <strong>editar el sitio</strong>, información, fotos, teléfonos etc.</br>
@@ -137,26 +161,8 @@ import Pregunta from '../components/Pregunta.astro';
         <a slot="boton" href="./administrar-redes-sociales" class="btn btn-primary">Ver más</a>
     </CallToAction>
 
-    <PreciosWeb  client:load />
+    
 
-    <Steps>
-        <h2 slot="titulo" class="font-weight-bold display-4" data-aos="fade-down" data-aos-duration="800">¿Cómo <span style=" color: var(--my-color)">trabajamos?</span></h2>
-        <StepsNum 
-            numero="1"
-            titulo="Contacto por teléfono"
-            descripcion="Realizamos una entrevista, donde le preguntaremos cómo quiere la página y cuáles son sus necesidades."
-        />
-        <StepsNum 
-            numero="2"
-            titulo="Desarrollo del sitio web"
-            descripcion="Alrededor de los 10 días preparamos el desarrollo de su sitio web, de acuerdo a sus gustos, preferencias y lo que más necesite su negocio."
-        />
-        <StepsNum 
-            numero="3"
-            titulo="Finalización del trabajo"
-            descripcion="Le presentamos como quedó el sitio configurado para su negocio, luego terminamos los detalles y cambios que quiera hacerle."
-        />
-    </Steps>
  
     <Featured BGblanco={true} >
         <h6 slot="subtitulo" class="title-primary">Programas online</h6>
