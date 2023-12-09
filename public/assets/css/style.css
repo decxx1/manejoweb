@@ -28,6 +28,10 @@
 	--my-color:#2d88ff;
 	--my-fondo: url("../images/fondo-redes.webp") no-repeat center;
 }
+.body-software {
+	--my-color:#2d88ff;
+	--my-fondo: url("../images/fondo-software.png") no-repeat center;
+}
 .body-imagen {
 	--my-color:#ffb600;
 	--my-fondo:url("../images/fondo-imagen.webp") no-repeat center;
