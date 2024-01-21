@@ -2,7 +2,8 @@
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Head from '../components/Head.astro';
-
+import { ViewTransitions } from 'astro:transitions';
+import BotonesContacto from '../components/BotonesContacto.vue';
 
 interface Props {
 	title: string;
@@ -24,40 +25,7 @@ const {
 
 ---
 <script>
-import $ from 'jquery';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
-	//recaptcha
-	$('#newsletterForm').submit(function(event) {
-        event.preventDefault();
-        var nombre = $('#nombre').val();
-		var email = $('#email').val();
-		var telefono = $('#telefono').val();
-		var mensaje = $('#mensaje').val();
- 
-        grecaptcha.ready(function() {
-            grecaptcha.execute('6Le7RCgcAAAAADiRK_NZ3EtONMmj7UqKbq0S3w26', {action: 'subscribe_newsletter'}).then(function(token) {
-                $('#newsletterForm').prepend('<input type="hidden" name="token" value="' + token + '">');
-                $('#newsletterForm').prepend('<input type="hidden" name="action" value="subscribe_newsletter">');
-                $('#newsletterForm').unbind('submit').submit();
-            });;
-        });
-	});
-	$("#contactoform").submit(function(e) {
-		e.preventDefault();
-	});
-	
-
-	//main.js
-    $(window).on('load', function () {
-        // == Animate loader off screen == //
-        $(".css-loader").fadeOut("slow");
-        AOS.init({
-            disable: 'mobile'
-        });
-
-    });
-
 </script>
 <!doctype html>
 <html lang="es">
@@ -90,26 +58,34 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<meta name="twitter:image" content={metaImg} />
 		<!-- HEAD -->
 		<Head />
+		<!-- Plugins Stylesheets -->
+		<link rel="stylesheet" href="assets/css/style2.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/all.min.css"/>
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/swiper/swiper.css">
+		<!-- Template Stylesheet -->
+		<link rel="stylesheet" href="assets/css/style.css">
+		<!-- Responsive Stylesheet -->
+		<link rel="stylesheet" href="assets/css/responsive.css">
+		<!-- Favicon -->
+		<link rel="icon" href="assets/images/faviconx64.png" type="image/png" />
+		<!-- recaptcha v3 -->
+		<!-- <script defer="defer" src="https://www.google.com/recaptcha/api.js?render=6Le7RCgcAAAAADiRK_NZ3EtONMmj7UqKbq0S3w26"></script> -->
+		<ViewTransitions />
 	</head>
 	<body class={bodyClass}>
 		<button onclick="topFunction()" id="return-to-top" title="Go to top"><i class="fas fa-chevron-up"></i></button> 
-		<!-- Loader Start -->
-		<div class="css-loader">
-			<div class="loader-inner line-scale d-flex align-items-center justify-content-center"></div>
-			<div class="loader-anim"></div>
-		</div>
 		<!-- Header Start -->
 		<Header />
 		<!-- Content Start -->
 		<slot />
 		<!-- Footer Start -->
 		<Footer />
-		<!--Plugins-->
-		<script src="assets/js/aos.js" is:inline></script>
+		<BotonesContacto client:only="vue" transition:persist />
 		<!--Template Script-->
 		<script src="assets/js/gotop.js" defer="defer" is:inline></script>
 		<!--Popup-->
-		<script src="assets/js/popup.js" defer="defer" is:inline></script>
+		<!-- <script src="assets/js/popup.js" defer="defer" is:inline></script> -->
 		<!--Alertas-->
 		<script src="assets/js/alertas.js" defer="defer" is:inline></script>
 	</body>

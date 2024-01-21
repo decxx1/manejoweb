@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import NuestroEquipo from '../components/NuestroEquipo.vue';
+import { slide, fade } from "astro:transitions";
+---
+<Layout
+    title="ManejoWeb - Equipo de expertos"
+    canonical="https://manejoweb.com.ar/equipo"
+    metaTitle="Conoce a nuestro equipo - ManejoWeb"
+    metaDescription="En ManejoWeb somos un grupo de profesionales altamente cualificados y apasionados de la publicidad y el marketing digital.Conoce a nuestro equipo y descubre cómo podemos ayudar"
+    metaImg="https://manejoweb.com.ar/assets/images/fondo-equipo.jpg"
+    bodyClass="body-equipo"
+    >
+    
+    <Hero background="assets/images/fondo-equipo.webp">
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Nuestro <em>equipo de trabajo</em> </h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Nos presentamos para que nos conozcan mejor y vean nuestro trabajo.</p>
+        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </Hero>
+
+    <NuestroEquipo client:load />
+    
+</Layout>

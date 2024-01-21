@@ -25,7 +25,7 @@
 
                         <div class="feature">
                             <ul>
-                                <template v-for="detalle in plan.detalles_s">
+                                <template v-for="(detalle, index) in plan.detalles" :key="index">
                                     <li><i class="fa fa-check-circle"></i>{{ detalle }}</li>
                                 </template>
                             </ul>
@@ -49,19 +49,20 @@
             }
         },
         async created() {
-            const isProd = import.meta.env.PROD;
-            if (isProd) {
-                const response = await fetch('api.php?get_planesweb=1' );
+            // const isProd = import.meta.env.PROD;
+            // if (isProd) {
+                const response = await fetch('https://manejoweb.com.ar/api.php?get_planesweb=1' );
                 this.planes = await response.json();
-            }
-            this.planes = [{
-                titulo:"Sitio web",
-                subtitulo:"Normal",
-                precio: "$20.000",
-                pago:"Pago único",
-                tipo:"pw",
-                detalles_s:{0:"1 año",1:"Diseño personalizado",2:"Temática del cliente",3:"Personalización completa",4:"Dominio",5:"Certificado SSL",6:"Ancho de banda sin medición"}
-            }]
+            // }else{
+            //     this.planes = [{
+            //         titulo:"Sitio web",
+            //         subtitulo:"Normal",
+            //         precio: "$20.000",
+            //         pago:"Pago único",
+            //         tipo:"pw",
+            //         detalles_s:{0:"1 año",1:"Diseño personalizado",2:"Temática del cliente",3:"Personalización completa",4:"Dominio",5:"Certificado SSL",6:"Ancho de banda sin medición"}
+            //     }]
+            // }
         },
     }
 </script>

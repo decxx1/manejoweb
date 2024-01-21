@@ -1,0 +1,27 @@
+---
+interface Props {
+    colClass?: string;
+	numero: string;
+    titulo: string;
+    descripcion: string;
+}
+
+const { numero,titulo,descripcion,colClass } = Astro.props;
+---
+<div class:list={[
+    {
+        [colClass] : colClass,
+        "col-md-4" : !colClass
+    }
+]} data-aos="fade-right" data-aos-duration="800">
+    <div class="bg-light position-relative px-3 my-5">
+        <div class="font-weight-bold circle text-white rounded-circle d-flex align-items-center justify-content-center mx-auto position-relative border border-white"
+             style="width: 60px;height: 60px;top: -30px;border-width: 4px !important; background-color: var(--my-color)">
+            {numero}
+        </div>
+        <div class="px-3 text-center pb-3">
+            <h4>{titulo}</h4>
+            <p class="font-weight-light my-3">{descripcion}</p>
+        </div>
+    </div>
+</div>

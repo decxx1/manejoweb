@@ -1,0 +1,176 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import CallToAction from '../components/CallToAction.astro';
+import CardFeatures from '../components/CardFeatures.astro';
+import Featured from '../components/Featured.astro';
+import ElementFeatures from '../components/ElementFeatures.astro';
+import PreciosRedes from '../components/PreciosRedes.vue';
+import Steps3 from '../components/Steps3.astro';
+import Steps3Num from '../components/Steps3Num.astro';
+import Faq from '../components/Faq.astro';
+import Pregunta from '../components/Pregunta.astro';
+import LogosSwiper from '../components/LogosSwiper.astro';
+import { slide, fade } from "astro:transitions";
+---
+<Layout
+    title="ManejoWeb - Diseño de imagen"
+    canonical="https://manejoweb.com.ar/creacion-de-marca"
+    metaTitle="Diseño de imagen y creación de logos - ManejoWeb"
+    metaDescription="¿Necesitas un logo atractivo y personalizado para tu marca? Ofrecemos servicios de diseño gráfico, Logos únicos y memorables para tu emprendimiento."
+    metaImg="https://manejoweb.com.ar/assets/images/logos-big.png"
+    bodyClass="body-imagen"
+    >
+    
+    <Hero background="assets/images/fondo-imagen.webp">
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" ><em>Diseño</em> de imagen y creación de <br>contenido para su <span>marca</span></h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Diseño y creación de logos, etiquetas, tarjetas de presentación, banners, flyers y más, hecho por diseñadores gráficos.</p>
+        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </Hero>
+
+    <CallToAction>
+        <h2 slot="titulo" >¿Necesita crear un logo para su negocio?</h2>
+        <p slot="descripcion">Nosotros lo diseñamos y creamos por usted, de acuerdo a sus gustos y totalmente personalizado.</p>
+        <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </CallToAction>
+
+    <Services title="Realizamos diseños de:">
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/logo.svg" alt="logos o logotipos">
+            <h5 slot="titulo">Logos / Logotipos</h5>
+            <p slot="descripcion">Creación de logos / logotipos con nombre de marca para la identidad del negocio.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/flyer.svg" alt="flyers publicitarios">
+            <h5 slot="titulo">Flyers publicitarios</h5>
+            <p slot="descripcion">Imágenes con descripciones diseñadas para presentar la marca o productos.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/banner.svg" alt="banners publicitarios">
+            <h5 slot="titulo">Banners publicitarios</h5>
+            <p slot="descripcion">Imágenes temáticas diseñadas para captar la atención del público.</p>
+        </CardFeatures>
+
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/portada-instagram.png" alt="portadas de historias destacadas">
+            <h5 slot="titulo">Portadas de historias destacadas</h5>
+            <p slot="descripcion">Iconos personalizados para las historias destacadas de Instagram.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/feed-insta.svg" alt="feed instagram">
+            <h5 slot="titulo">Feed para Instagram</h5>
+            <p slot="descripcion">Diseño, creación y organización de contenido para Instagram.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/tarjeta.svg" alt="tarjetas de presentacion">
+            <h5 slot="titulo">Tarjetas de presentación</h5>
+            <p slot="descripcion">Forma de presentar y ofrecer tus productos y/o servicios.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/etiqueta.svg" alt="etiquetas de productos">
+            <h5 slot="titulo">Etiquetas de productos</h5>
+            <p slot="descripcion">Etiquetas que brindan información importante del producto a los clientes.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/3d.png" alt="Representaciones en 3d">
+            <h5 slot="titulo">Representaciones en 3D</h5>
+            <p slot="descripcion">Imágenes digitales creadas en 3d de objetos, productos o lugares para presentaciones profesionales.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/video.svg" alt="Multimedia">
+            <h5 slot="titulo">Multimedia</h5>
+            <p slot="descripcion">Videos instructivos para presentar y vender productos y/o servicios.</p>
+        </CardFeatures>
+       
+    </Services>
+
+    <Featured BGblanco={false}>
+        <h6 slot="subtitulo" class="title-primary">Sobre el diseño de marca</h6>
+        <h2 slot="titulo" class="title-blue">Diseño y creación de logo para su negocio o empresa.</h2>
+        <p slot="descripcion">El <strong>logo</strong> es ese dibujo, título y/o frase que <strong>representa</strong> su <strong>marca</strong> y le da una <strong>identidad</strong> ante sus clientes y a todo el público, para que pueda ser <strong>reconocido</strong> con solo una mirada. Su logo deberá <strong>tener un significado</strong>, un simbolismo o una historia, que se explique con un dibujo o un título, los colores y las formas, la tipografía y la temática. Ésto le dará a su empresa la <strong>identidad</strong> que necesita, por eso nos especializamos en <strong>diseñar logos</strong> para <strong>todo</strong> tipo de <strong>negocios</strong>. </p>
+        
+        <ElementFeatures iconClass="fas fa-palette mr-4">
+            <h5 slot="titulo">Representa su marca:</h5>
+            <p slot="descripcion">Será reconocido fácilmente.</p>
+        </ElementFeatures>
+        <ElementFeatures iconClass="fas fa-chart-line mr-4">
+            <h5 slot="titulo">Identidad:</h5>
+            <p slot="descripcion">Logo diseñado <strong>únicamente</strong> para su negocio.</p>
+        </ElementFeatures>
+        
+        <div slot="imagen" class="featured-img2">
+            <img loading="lazy" class="img-fluid" src="assets/images/logos-big.png" alt="imagen de logos">
+        </div>
+    </Featured>
+
+    <LogosSwiper />
+    <PreciosRedes
+        color={'#ffb600'}
+        url={'https://manejoweb.com.ar/api.php?get_planesmarca=1'}
+        client:load 
+    />
+
+    <Steps3>
+        <h2 slot="titulo" class="font-weight-bold display-4" data-aos="fade-down" data-aos-duration="800">¿Cómo <span style=" color: var(--my-color)">trabajamos?</span></h2>
+        <Steps3Num
+            numero="1"
+            titulo="Contacta con nosotros"
+            descripcion="Realizamos una entrevista por teléfono o videollamada, le hacemos preguntas sobre la marca de su negocio y si tiene algunos ejemplos o ideas en mente."
+        />
+        <Steps3Num 
+            numero="2"
+            titulo="Planeación"
+            descripcion="Basados en la entrevista le ofrecemos distintas propuestas de diseño para que elija."
+        />
+        <Steps3Num 
+            numero="3"
+            titulo="Finalización"
+            descripcion="Le diseñamos su marca en aproximadamente 7 días con todo el paquete contratado, con opciones de modificar los últimos detalles."
+        />
+    </Steps3>
+
+    <Featured BGblanco={false}>
+        <h6 slot="subtitulo" class="title-primary">Publicidad con su marca</h6>
+        <h2 slot="titulo" class="title-blue">Creación y diseño de banners y flyers publicitarios para su negocio.</h2>
+        <p slot="descripcion">A partir del <strong>estudio</strong> de su <strong>mercado</strong>, diseñamos <strong>Banners y Flyers publicitarios</strong> atractivos y específicos para sus potenciales clientes, con el fin de que obtenga <strong>más ventas</strong>, la <strong>publicidad</strong> puede ser colocada en sus <strong>redes sociales, WhatsApp, páginas web</strong> o incluso pueden ser <strong>impresas</strong> para difundir en donde quiera.</p>
+        
+        <ElementFeatures iconClass="fas fa-shopping-cart mr-4">
+            <h5 slot="titulo">Publicita tu marca:</h5>
+            <p slot="descripcion">Ayuda a difundir tus servicios o productos.</p>
+        </ElementFeatures>
+        <ElementFeatures iconClass="far fa-handshake mr-4">
+            <h5 slot="titulo">Presencia:</h5>
+            <p slot="descripcion">Muestre su contenido al público.</p>
+        </ElementFeatures>
+       
+        <div slot="imagen" class="featured-img2">
+            <img loading="lazy" class="img-fluid" src="assets/images/banners-flyers.jpg" alt="bannery y flyers publicitarios">
+        </div>
+    </Featured>
+
+    <Faq titulo="Sobre diseño">
+        <Pregunta 
+            numero="1"
+            pregunta="¿ Qué es Diseño Gráfico ?"
+            respuesta="Con el <strong>intercambio masivo</strong> de <strong>información</strong> que hay en la actualidad, impulsado por el <strong>internet, las redes sociales y nuevas tecnologías</strong>, se vuelve <strong>fundamental</strong> la presencia del <strong>Diseño Gráfico</strong>. Es un estudio académico destinado a <strong>proyectar comunicaciones visuales</strong>, para transmitir un <strong>mensaje específico</strong> a distintos <strong>grupos sociales</strong>, con el objetivo de optimizar las <strong>comunicaciones gráficas</strong>."
+        />
+        <Pregunta
+            numero="2"
+            pregunta="¿ Qué hace el Diseñador Gráfico ?"
+            respuesta="Algunas de las <strong>áreas</strong> que abarca el <strong>Diseñador Gráfico</strong> son: diseño gráfico publicitario, identidad corporativa, branding de marca, diseño web, diseño de envases, diseño tipográfico, cartelería, señalética, diseño de información, multimedia, edición de video, animación digital, animación 3D, diseño editorial, fotografía, entre otros."
+        />
+        <Pregunta
+            numero="3"
+            pregunta="¿ Qué es un logotipo ?"
+            respuesta="Un <strong>logotipo</strong> es un <strong>símbolo</strong> formado por <strong>letras o imágenes</strong> que sirve para <strong>identificar una marca, empresa, institución o sociedad,</strong> con el fin de llamar la <strong>atención</strong> a simple vista, que sea <strong>único</strong> y fácil de <strong>recordar</strong>, además de ésto tiene que ser perfectamente <strong>legible</strong> independientemente del <strong>tamaño</strong> que tenga y poder ser <strong>adaptado</strong> a cualquier <strong>escala</strong> sin perder su <strong>esencia</strong> para que pueda ser reproducido en cualquier material."
+        />
+    </Faq>
+
+    <CallToAction>
+        <h2 slot="titulo" >Diseñamos y creamos todo el contenido para su marca.</h2>
+        <p slot="descripcion"> Deje el diseño de su negocio en manos de expertos en diseño gráfico.</p>
+        <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </CallToAction>
+    
+</Layout>

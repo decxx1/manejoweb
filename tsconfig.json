@@ -1,6 +1,8 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "jsx": "preserve"
+    "jsx": "react-jsx",
+    "baseUrl": "C:/xampp/htdocs/astro/manejoweb",
+    "jsxImportSource": "react"
   }
 }

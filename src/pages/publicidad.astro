@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import CallToAction from '../components/CallToAction.astro';
+import CardFeatures from '../components/CardFeatures.astro';
+import Featured from '../components/Featured.astro';
+import ElementFeatures from '../components/ElementFeatures.astro';
+import Steps3 from '../components/Steps3.astro';
+import Steps3Num from '../components/Steps3Num.astro';
+import Faq from '../components/Faq.astro';
+import Pregunta from '../components/Pregunta.astro';
+import { slide, fade } from "astro:transitions";
+---
+<Layout
+    title="ManejoWeb - Publicidad"
+    canonical="https://manejoweb.com.ar/publicidad"
+    metaTitle="Campañas publicitarias en línea - ManejoWeb"
+    metaDescription="¿Quieres aumentar el alcance de tu empresa en internet? Servicios de publicidad en línea efectivos y personalizados. Campañas de Google ADS y Meta ADS"
+    metaImg="https://manejoweb.com.ar/assets/images/googleads.png"
+    bodyClass="body-publicidad"
+    >
+    
+    <Hero background="assets/images/fondo-publi.jpg">
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo"><em>Campañas publicitarias</em></br>en internet.</h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Ofrecemos servicios de publicidad en línea personalizados para aumentar el alcance de tu empresa en internet.</p>
+        <a transition:animate="slide" slot="boton" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </Hero>
+
+    <CallToAction>
+        <h2 slot="titulo" > ¿Quiere aumentar el tráfico y las ventas de su negocio?</h2>
+        <p slot="descripcion"> Nuestro equipo de expertos en publicidad en línea puede ayudar a aumentar el alcance de tu empresa y generar más clientes.</p>
+        <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </CallToAction>
+
+    <Services title="Por qué elegirnos">
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/hombre-de-negocios.png" alt="aumente clientes">
+            <h5 slot="titulo">Obtenga más clientes</h5>
+            <p slot="descripcion">Nuestras campañas publicitarias en línea le ayudarán a llegar a un público más amplio y relevante.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/podio.png" alt="Seo google">
+            <h5 slot="titulo">Mejore su posicionamiento</h5>
+            <p slot="descripcion">Un mayor alcance y tráfico en su sitio web le ayudará a mejorar su posicionamiento en los resultados de búsqueda de Google.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/llave-inglesa.png" alt="publicidad personalizada">
+            <h5 slot="titulo">Publicidad precisa y personalizada</h5>
+            <p slot="descripcion">Utilizamos técnicas de segmentación y publicidad personalizada para asegurarnos de que su mensaje llegue a la audiencia correcta de manera efectiva.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/reloj.png" alt="menor tiempo">
+            <h5 slot="titulo">Disminuya el tiempo y esfuerzo en marketing</h5>
+            <p slot="descripcion">Nuestros profesionales en publicidad en línea se encargarán de todo el trabajo, permitiéndole a usted centrarse en otros aspectos de su negocio.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/analitica.png" alt="analisis y seguimiento publicitario">
+            <h5 slot="titulo">Análisis y seguimiento</h5>
+            <p slot="descripcion">Le brindamos informes detallados sobre el rendimiento de sus campañas publicitarias, para que pueda ver cómo están trabajando y tomar decisiones informadas.</p>
+        </CardFeatures>
+        <CardFeatures colClass='col-sm-6 col-lg-4'>
+            <img slot="imagen" src="assets/images/monedas.png" alt="inversion segura">
+            <h5 slot="titulo">Retorno de la inversión</h5>
+            <p slot="descripcion">Nuestras campañas publicitarias están diseñadas para generar un retorno de la inversión a largo plazo para su negocio.</p>
+        </CardFeatures>
+       
+    </Services>
+
+    <Featured BGblanco={false}>
+        <h6 slot="subtitulo" class="title-primary">Sobre la publicidad</h6>
+        <h2 slot="titulo" class="title-blue">Campañas publicitarias efectivas y personalizadas en internet</h2>
+        <p slot="descripcion"><strong>Realizamos</strong> campañas publicitarias en <strong>Redes Sociales</strong>, como <strong>Facebook</strong>, <strong>Instagram</strong> y <strong>Youtube</strong>, también podemos ayudar a mejorar el <strong>posicionamiento</strong> de tu empresa en los resultados de búsqueda de <strong>Google</strong>. Nuestro equipo de profesionales en publicidad en línea se encargará de <strong>todo el trabajo</strong>, permitiéndote a ti centrarte en otros aspectos de tu negocio. Ofrecemos <strong>informes detallados</strong> sobre el rendimiento de tus campañas publicitarias, para que puedas ver cómo están trabajando y tomar <strong>decisiones informadas</strong>. Nuestras campañas publicitarias están diseñadas para generar un <strong>retorno de la inversión</strong> sin riesgos altos. ¿Quieres aumentar el alcance de tu empresa en internet? ¡Contáctanos para más información!</p>
+        
+        <ElementFeatures iconClass="fas fa-palette mr-4">
+            <h5 slot="titulo">Medios:</h5>
+            <p slot="descripcion">Facebook, Instagram, Google, YouTube</p>
+        </ElementFeatures>
+        <ElementFeatures iconClass="fas fa-chart-line mr-4">
+            <h5 slot="titulo">Análisis y seguimiento:</h5>
+            <p slot="descripcion">Informes detallados del rendimiento de las campañas</p>
+        </ElementFeatures>
+        
+        <div slot="imagen" class="featured-img2">
+            <img loading="lazy" class="img-fluid" src="assets/images/campania-publicitaria.png" alt="campaña publicitaria">
+        </div>
+    </Featured>
+
+    <Steps3>
+        <h2 slot="titulo" class="font-weight-bold display-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">¿Cómo <span style=" color: var(--my-color)">trabajamos?</span></h2>
+        <Steps3Num
+            numero="1"
+            colClass="col-lg-3 col-sm-6"
+            titulo="Identificación de objetivos"
+            descripcion="Primero, realizamos una reunión con el cliente para entender sus objetivos y necesidades publicitarias."
+        />
+        <Steps3Num 
+            numero="2"
+            colClass="col-lg-3 col-sm-6"
+            titulo="Diseño y planificación"
+            descripcion="Desarrollamos una estrategia publicitaria personalizada y efectiva en base a la información recopilada."
+        />
+        <Steps3Num 
+            numero="3"
+            colClass="col-lg-3 col-sm-6"
+            titulo="Ejecución"
+            descripcion="implementamos la campaña publicitaria en las redes sociales o plataformas online seleccionadas"
+        />
+        <Steps3Num 
+            numero="4"
+            colClass="col-lg-3 col-sm-6"
+            titulo="Seguimiento y análisis"
+            descripcion="Brindamos seguimiento y análisis de rendimiento para asegurarnos de que la campaña esté generando resultados para el cliente"
+        />
+    </Steps3>
+
+    <Featured BGblanco={true}>
+        <h6 slot="subtitulo" class="title-primary">Sobre campañas de Google ADS</h6>
+        <h2 slot="titulo" class="title-blue">Aprovecha el poder de Google para llegar a tu público objetivo</h2>
+        <p slot="descripcion"><strong>Google ADS</strong> es una plataforma <strong>publicitaria en línea</strong> que te permite crear anuncios que aparecen en los resultados de <strong>búsqueda de Google</strong> y en <strong>sitios web</strong> de Google Partners.<br/>Con Google ADS puedes <strong>llegar a tu público objetivo de manera precisa y efectiva</strong>, gracias a la segmentación y personalización de anuncios. Además, <strong>maximizarás el rendimiento</strong> de tu campaña y obtendrás un <strong>retorno de la inversión a corto/largo plazo</strong>. No tienes que preocuparte por configurar y gestionar tu campaña, nuestros expertos en publicidad en línea se encargarán de todo.</p>
+        
+        <ElementFeatures iconClass="fas fa-shopping-cart mr-4">
+            <h5 slot="titulo">Segmentación precisa</h5>
+            <p slot="descripcion">Llega a tu público objetivo de manera específica y relevante.</p>
+        </ElementFeatures>
+        <ElementFeatures iconClass="far fa-handshake mr-4">
+            <h5 slot="titulo">Máximo rendimiento</h5>
+            <p slot="descripcion">Obtén el máximo rendimiento de tu campaña de Google ADS gracias a nuestra experiencia y conocimiento.</p>
+        </ElementFeatures>
+       
+        <div slot="imagen" class="featured-img2">
+            <img loading="lazy" class="img-fluid" src="assets/images/googleads.png" alt="campaña de google ADS">
+        </div>
+    </Featured>
+
+    <!-- Featured Start -->
+    <section class="featured blanquito" id="precio">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-8" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
+                    <div class="title text-center">
+                        <h6 class="title-primary">presupuestos</h6>
+                        <h2 class="title-blue">¿Cuánto cuesta la publicidad?</h2>
+                    </div>
+				</div>
+				<div class="col-12" data-aos="fade-right" data-aos-delay="400" data-aos-duration="800">
+					<p>El costo de la publicidad en Google ADS depende de <strong>diversos factores</strong>, como la <strong>competencia en tu industria</strong>, el <strong>presupuesto</strong> que estés dispuesto a invertir y el <strong>objetivo</strong> de tu campaña.</p>
+						<p>En general, es importante tener en cuenta que el costo de la publicidad en Google ADS es <strong>variable</strong> y <strong>depende de muchos factores</strong>, por lo que es difícil dar una cifra exacta. Sin embargo, <strong>nuestros expertos</strong> en publicidad en línea pueden ayudarte a <strong>establecer un presupuesto</strong> y a <strong>maximizar tu retorno de la inversión</strong>.</p>
+					</div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured End -->
+    
+    <Faq titulo="Sobre publicidad">
+        <Pregunta 
+            numero="1"
+            pregunta="¿Qué es Google ADS?"
+            respuesta="Google ADS es un servicio de <strong>publicidad en línea</strong> ofrecido por Google, que te permite mostrar anuncios a tu <strong>público objetivo</strong> en Google y en su red de sitios asociados. Esto te permite llegar a personas que están <strong>interesadas en tus productos o servicios</strong> y <strong>aumentar el tráfico y las ventas</strong> de tu negocio."
+        />
+        <Pregunta 
+            numero="2"
+            pregunta="¿Por qué debo invertir en publicidad en línea?"
+            respuesta="La publicidad en línea es una excelente manera de <strong>llegar a tu público objetivo de manera precisa y efectiva</strong>. Además, puede ayudarte a <strong>aumentar el tráfico y las ventas de tu negocio</strong>, <strong>mejorar el posicionamiento de tu sitio web en los resultados de búsqueda</strong> y <strong>reducir el tiempo y el esfuerzo que dedicas al marketing</strong>. También puedes obtener un <strong>retorno de la inversión a corto/largo plazo</strong>."
+        />
+        <Pregunta 
+            numero="3"
+            pregunta="¿Cuáles son las ventajas de trabajar con ManejoWeb para mi campaña de publicidad?"
+            respuesta="Al trabajar con ManejoWeb para tu <strong>campaña de publicidad</strong>, obtendrás acceso a nuestros <strong>profesionales en publicidad en línea</strong>, que se encargarán de <strong>todo el trabajo</strong> y te brindarán <strong>informes detallados</strong> sobre el rendimiento de tus campañas. Además, ofrecemos una <strong>atención personalizada</strong> que aclarará todas sus demandas."
+        />
+        <Pregunta 
+            numero="4"
+            pregunta="¿Por qué debo confiar en ManejoWeb para mi campaña de Google ADS?"
+            respuesta="<strong>ManejoWeb</strong> tiene un equipo de profesionales altamente cualificados en publicidad en línea y una amplia experiencia en la <strong>creación y gestión de campañas de Google ADS</strong>. Nos aseguramos de que cada campaña esté <strong>optimizada para maximizar su rendimiento</strong>. Además, ofrecemos un servicio personalizado y estamos siempre dispuestos a <strong>ayudar y asesorar</strong> a nuestros clientes."
+        />
+        <Pregunta 
+            numero="5"
+            pregunta="¿Cuánto tiempo lleva crear y lanzar una campaña de Google ADS?"
+            respuesta="El tiempo necesario para crear y lanzar una <strong>campaña de Google ADS</strong> depende del <strong>tamaño</strong> y <strong>complejidad</strong> de la campaña. Sin embargo, <strong>nuestros expertos en publicidad</strong> en línea pueden ayudarlo a <strong>definir un calendario</strong> y a <strong>establecer objetivos realistas</strong> para el lanzamiento de su campaña. En general, puede esperar que el proceso tome <strong>algunas semanas</strong> desde el inicio hasta el lanzamiento de la campaña."
+        />
+    </Faq>
+
+    <CallToAction>
+        <h2 slot="titulo" > ¿Está interesado en campañas publicitarias en línea?</h2>
+        <p slot="descripcion"> Deje que nuestros expertos en publicidad en línea le ayuden a llegar a su público objetivo de manera efectiva.</p>
+        <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </CallToAction>
+</Layout>

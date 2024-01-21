@@ -19,7 +19,7 @@ const id = 'collapse' + numero;
         </div>
         <div id={id} class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;" data-parent="#accordion">
             <div class="panel-body">
-                <p>{respuesta}</p>
+                <p set:html={respuesta}></p>
             </div>
         </div>
       </div>

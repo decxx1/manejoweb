@@ -14,6 +14,7 @@ import Steps from '../components/Steps.astro';
 import StepsNum from '../components/StepsNum.astro';
 import Faq from '../components/Faq.astro';
 import Pregunta from '../components/Pregunta.astro';
+import { slide, fade } from "astro:transitions";
 ---
 <Layout
     title="ManejoWeb - Diseño y creación de páginas web"
@@ -24,10 +25,10 @@ import Pregunta from '../components/Pregunta.astro';
     bodyClass=""
     >
     
-    <Hero>
-        <h1 slot="titulo" data-aos="fade-right" data-aos-delay="200">Creamos </br><em>páginas web</em> Para su negocio</h1>
-        <p slot="descripcion" data-aos="fade-right" data-aos-delay="600">Si tiene un negocio o emprendimiento en Argentina y quiere tener presencia en la web, ha venido al lugar indicado.</p>
-        <a slot="boton" data-aos="fade-right" data-aos-delay="900" href="#contact" class="btn btn-primary">Contáctenos</a>
+    <Hero background="assets/images/fondo-web.webp">
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Creamos </br><em>páginas web</em> Para su negocio</h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Si tiene un negocio o emprendimiento en Argentina y quiere tener presencia en la web, ha venido al lugar indicado.</p>
+        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
     </Hero>
 
     <CallToAction>

@@ -7,13 +7,11 @@ import CardFeatures from '../components/CardFeatures.astro';
 import Featured from '../components/Featured.astro';
 import ElementFeatures from '../components/ElementFeatures.astro';
 import PreciosRedes from '../components/PreciosRedes.vue';
-import RecentPosts from '../components/RecentPosts.astro';
-import RecentPostLeft from '../components/RecentPostLeft.astro';
-import RecentPostRight from '../components/RecentPostRight.astro';
 import Steps2 from '../components/Steps2.astro';
 import Steps2Num from '../components/Steps2Num.astro';
 import Faq from '../components/Faq.astro';
 import Pregunta from '../components/Pregunta.astro';
+import { slide, fade } from "astro:transitions";
 ---
 <Layout
     title="ManejoWeb - Creación y administración de redes sociales"
@@ -24,10 +22,10 @@ import Pregunta from '../components/Pregunta.astro';
     bodyClass="body-redes"
     >
     
-    <Hero>
-        <h1 slot="titulo" data-aos="fade-right" data-aos-delay="200">Creamos y Administramos<br>tus <em>redes sociales</em></h1>
-        <p slot="descripcion" data-aos="fade-right" data-aos-delay="600">Generamos contenido de calidad para que consigas más clientes fidelizados y más ventas.</p>
-        <a slot="boton" data-aos="fade-right" data-aos-delay="900" href="#contact" class="btn btn-primary">Contáctenos</a>
+    <Hero background="assets/images/fondo-redes.webp">
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Creamos y Administramos<br>tus <em>redes sociales</em></h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Generamos contenido de calidad para que consigas más clientes fidelizados y más ventas.</p>
+        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
     </Hero>
 
     <CallToAction>
@@ -114,7 +112,11 @@ import Pregunta from '../components/Pregunta.astro';
 		</div>
     </section>
     <!-- Services End -->
-    <PreciosRedes  client:load />
+    <PreciosRedes
+        color={'#2d88ff'}
+        url={'https://manejoweb.com.ar/api.php?get_planesredes=1'}
+        client:load 
+    />
 
     <Steps2>
         <h2 slot="titulo" class="font-weight-bold display-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">¿Cómo <span style=" color: var(--my-color)">trabajamos?</span></h2>
@@ -136,84 +138,45 @@ import Pregunta from '../components/Pregunta.astro';
     </Steps2>
 
     <Featured BGblanco={false}>
-        <h6 slot="subtitulo" class="title-primary">Venda sus productos online</h6>
-        <h2 slot="titulo" class="title-blue">Tienda online para su negocio</h2>
-        <p slot="descripcion">Creamos una <strong>página web profesional</strong> que tenga toda la información de su negocio y la <strong>tienda</strong> donde muestre todos sus <strong>productos a la venta</strong>. <strong>Fácil de usar</strong> para las personas que no tengan conocimientos de desarrollo, similar al funcionamiento de "<strong>tiendanube</strong>".</br>Contamos con <strong>distintos métodos de pago</strong> para que resulte más fácil la compra de tus productos, <strong>sistema de envíos</strong>, <strong>sistema de cupones de descuentos</strong>, puede <strong>administrar los clientes</strong> que compran y las <strong>ventas que realiza</strong> para tener un <strong>control del stock</strong> disponible.</br> En cualquier momento puede <strong>editar el sitio</strong>, información, fotos, teléfonos etc.</br>
-            Le dejamos el <strong>sitio listo para empezar a vender</strong>, y si en un futuro quiere <strong>agregar más productos</strong> o <strong>cambiar los precios</strong> puede hacerlo desde una <strong>interfaz muy amigable</strong> desde la pc o el teléfono. </p>
+        <h6 slot="subtitulo" class="title-primary">Publicidad Online</h6>
+        <h2 slot="titulo" class="title-blue">Atrae más clientes con publicidad de Google, Facebook e Instagram.</h2>
+        <p slot="descripcion">La <strong>publicidad paga</strong> es la forma más <strong>rápida</strong> y <strong>eficiente</strong> de <strong>conseguir clientes</strong>, lo mejor es que puede determinar su <strong>propio presupuesto</strong> por mes, para gestionar las publicidades dependiendo <strong>lo que quiera gastar</strong>, <strong>Google Ads</strong> (antes Google AdWords) y <strong>Facebook Business</strong>, son las principales plataformas de <strong>manejo de publicidad</strong> en internet, con <strong>Google Ads</strong> aparecerá <strong>primero</strong> en los resultados de <strong>búsqueda</strong> de Google, y con <strong>Facebook Business</strong> podrá aparecer en Facebook e Instagram de <strong>personas que NO los estén siguiendo</strong>. De esta forma más de <strong>10 mil usuarios</strong> verán su <strong>negocio</strong> todos los días. </p>
         
         <ElementFeatures iconClass="fas fa-shopping-cart mr-4">
-            <h5 slot="titulo">Venta online:</h5>
-            <p slot="descripcion">Cree un catálogo de venta de todos sus productos.</p>
+            <h5 slot="titulo">Presupuestos:</h5>
+            <p slot="descripcion">Adaptado a las necesidades de tu empresa</p>
         </ElementFeatures>
         <ElementFeatures iconClass="far fa-handshake mr-4">
-            <h5 slot="titulo">Todo listo:</h5>
-            <p slot="descripcion">Solo deberá despachar los productos cuando se realice una compra.</p>
+            <h5 slot="titulo">Nuestro precio:</h5>
+            <p slot="descripcion">Cobramos un porcentaje del presupuesto total</p>
         </ElementFeatures>
-      
+       
         <div slot="imagen" class="featured-img2">
-            <img loading="lazy" class="img-fluid" src="assets/images/tienda-online.svg" alt="imagen sobre tiendas online">
+            <img loading="lazy" class="img-fluid" src="./assets/images/marketing.svg" alt="publicidad google ads">
         </div>
     </Featured>
 
-    <CallToAction>
-        <h2 slot="titulo" >¿Necesita un community manager para su negocio?</h2>
-        <p slot="descripcion"> Nosotros creamos y administramos sus redes sociales y sitios web.</p>
-        <a slot="boton" href="./administrar-redes-sociales" class="btn btn-primary">Ver más</a>
-    </CallToAction>
-
-    
-
- 
-    <Featured BGblanco={true} >
-        <h6 slot="subtitulo" class="title-primary">Programas online</h6>
-        <h2 slot="titulo" class="title-blue">Software empresariales para pequeñas, medianas y grandes empresas.</h2>
-        <p slot="descripcion">Si tiene un negocio y quiere <strong>administrar las finanzas y productos</strong> desde su <strong>computadora, celular o tablet</strong> y desde cualquier lugar con conexión a internet,</br> le <strong>instalamos un programa</strong> para que pueda gestionar <strong>desde su web</strong> la <strong>facturación, contabilidad, gestión de inventarios, almacenes, fabricación y proyectos</strong> entre otros.</p>
-        
-        <ElementFeatures iconClass="fas fa-calculator mr-4">
-            <h5 slot="titulo">Gestion:</h5>
-            <p slot="descripcion">Facturación, Inventario, contabilidad, productos.</p>
-        </ElementFeatures>
-        <ElementFeatures iconClass="fas fa-magic mr-4">
-            <h5 slot="titulo">Personalizado:</h5>
-            <p slot="descripcion">Desarrollo adaptado al cliente.</p>
-        </ElementFeatures>
-
-        <div slot="imagen" class="featured-img2">
-            <img loading="lazy" class="img-fluid" src="assets/images/facturacion.svg" alt="imagen de facturación">
-        </div>
-    </Featured>
-
-    <Faq titulo="Sobre páginas web">
+    <Faq titulo="Sobre redes sociales">
         <Pregunta 
             numero="1"
-            pregunta="¿ Qué son las paginas web ?"
-            respuesta="Una <strong>página web</strong>, página digital o página electrónica, es <strong>un sitio</strong> donde se puede <strong>ver contenido</strong> de texto, sonido, video, imagen, programas, links entre otras cosas. Este sitio <strong>está compuesto</strong> por el <strong>Dominio</strong> (El nombre del sitio web) y la <strong>información</strong> que está almacenada en el <strong>Hosting</strong> (Servidor físico donde se encuentran las imágenes, textos, videos...)."
+            pregunta="¿ Qué es Community Manager ?"
+            respuesta="El <strong>community manager</strong> es aquel profesional encargado de la <strong>planificación y ejecución</strong> de tareas que hacen que una <strong>marca</strong> tenga <strong>presencia en internet</strong>, es el encargado de <strong>administrar</strong> la <strong>comunidad online</strong> de la marca. Entre las habilidades que lo destacan se encuentran la <strong>comunicación y el diseño</strong>, para lograr resultados óptimos tiene que hacer de <strong>puente</strong> entre la <strong>organización</strong> y sus diferentes <strong>públicos</strong>. La tarea del community manager no puede ser llevada por cualquier persona, se requiere que sea <strong>analista, detallista</strong> y que esté constantemente <strong>actualizado</strong>, ya que las redes <strong>no son estáticas</strong> sino que están en <strong>permanente cambio</strong>."
         />
         <Pregunta
             numero="2"
-            pregunta="¿ Cuánto cuesta ?"
-            respuesta="El presupuesto se determina según la complejidad de la web, el precio actual del dominio que necesite (.com, .com.ar, .net, .online, etc.), y el precio actual de los servidores de hosting, aunque siempre existen promociones y convenios con las empresas externas."
+            pregunta="¿ Qué son las redes sociales y para que sirven ?"
+            respuesta="Las <strong>redes sociales</strong>, son <strong>medio de comunicación masivos</strong> donde participan personas de <strong>todo el mundo</strong> y que llevan consigo a <strong>todos lados</strong>, intercambiando <strong>conversaciones, ideas, negocios, imágenes, videos y demás</strong>. Estos intercambios se llevan a cabo entre <strong>personas</strong> que <strong>comparten</strong> sus mismos <strong>intereses</strong> sean conocidos o no."
         />
         <Pregunta
             numero="3"
-            pregunta="¿ Qué incluye Diseñar y Crear paginas web ?"
-            respuesta="Existen infinidad de <strong>diseños temáticos</strong> que puede <strong>personalizar</strong>, como páginas para gimnasios, restaurantes, venta de ropa, inmobiliarias, arquitectura, autos, pintura, música, artes, cocina etc... Principalmente deberá <strong>elegir el dominio</strong> (el nombre de la página) si todavía no tiene uno, la <strong>creación</strong> de la web depende si la necesita para <strong>vender productos</strong>, <strong>publicitar un lugar, una marca, una persona o un servicio.</strong>"
-        />
-        <Pregunta
-            numero="4"
-            pregunta="¿ Qué es web informativa o para publicitar ?"
-            respuesta="Una web <strong>informativa</strong> es aquella que pretende <strong>brindar información</strong> y contenido <strong>sobre un tema, trabajo o servicio específico</strong>. El <strong>objetivo</strong> principal es que <strong>conozcan su contenido</strong> y al mismo tiempo puede <strong>conseguir llamadas o clientes potenciales</strong>.  Este sería un ejemplo: <a rel='nofollow noopener noreferrer' href='https://kwanying.com.ar' target='_blank'>Kwanying</a>."
-        />
-        <Pregunta
-            numero="5"
-            pregunta="¿ Qué es Tienda online?"
-            respuesta="En este tipo de webs el único <strong>objetivo</strong> es <strong>vender productos</strong> por internet de forma <strong>online</strong> (comercio electrónico, o E-commerce), los <strong>productos</strong> que se muestran son productos <strong>disponibles</strong> y con el <strong>precio</strong> actualizado al día. Son <strong>más costosas</strong> y necesitan constante <strong>mantenimiento y administración</strong>."
+            pregunta="¿ Cuál es la red social más usada ?"
+            respuesta="Actualmente la <strong>red social</strong> más <strong>popular</strong> y <strong>famosa</strong> en todo el mundo es <strong>Facebook</strong>, seguido por <strong>YouTube</strong> en cuanto a contenido de streaming y <strong>videos online</strong>, e <strong>Instagram</strong> quizás la red social <strong>más importante</strong> para los <strong>negocios y emprendedores</strong> junto con <strong>Facebook</strong> hacen una herramienta fundamental para el <strong>reconocimiento</strong> y <strong>potenciamiento</strong> de una <strong>marca</strong>."
         />
     </Faq>
 
     <CallToAction>
-        <h2 slot="titulo" >Desarrollo web</h2>
-        <p slot="descripcion"> Desarrollamos páginas webs profesionales</p>
+        <h2 slot="titulo" >¿Necesita más seguidores? ¿Desea atraer clientes?</h2>
+        <p slot="descripcion"> Estudiamos el mercado de su negocio y creamos contenido para sus redes sociales.</p>
         <a slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
     </CallToAction>
 </Layout>

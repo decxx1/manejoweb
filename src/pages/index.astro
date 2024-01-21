@@ -7,6 +7,7 @@ import CardFeatures from '../components/CardFeatures.astro';
 import Featured from '../components/Featured.astro';
 import ElementFeatures from '../components/ElementFeatures.astro';
 import About from '../components/About.astro';
+import { slide, fade } from "astro:transitions";
 ---
 <Layout
     title="ManejoWeb - Marketing Digital"
@@ -17,10 +18,10 @@ import About from '../components/About.astro';
     bodyClass="body-ini"
     >
 
-    <Hero>
-        <h1 slot="titulo" data-aos="fade-right" data-aos-delay="200">Publicidad, diseño y </br><em>marketing digital</em></h1>
-        <p slot="descripcion" data-aos="fade-right" data-aos-delay="600">Publicidad en internet, diseño de páginas web, creación de contenido y administración de redes sociales, diseño de logos y cartelería</p>
-        <a slot="boton" data-aos="fade-right" data-aos-delay="900" href="#contact" class="btn btn-primary">Contáctenos</a>
+    <Hero background="assets/images/fondo-marketing.webp">
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo">Publicidad, diseño y </br><em>marketing digital</em></h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Publicidad en internet, diseño de páginas web, creación de contenido y administración de redes sociales, diseño de logos y cartelería</p>
+        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
     </Hero>
 
     <CallToAction>

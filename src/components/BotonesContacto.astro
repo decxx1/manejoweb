@@ -11,15 +11,15 @@
     } else {
         htmlMsn = `<a id='msn' class='tooltip--left messenger-color' data-tooltip='Facebook'><i class='fab fa-facebook-messenger'></i></a><div id='fb-chat'>
                 <div class='close'>X</div>
-                    <iframe src='https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/MarGocomunicacion&tabs=messages&width=300&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=385423118195111' width='300' height='300' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FMarGocomunicacion&tabs=messages&width=340&height=331&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId=160649695194253" width="340" height="271" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                 </div>`;
     }
     var mainDiv = document.getElementById("main-div");
     
     mainDiv.innerHTML += htmlMsn;
     //botones de comunicación
-    var mainDiv = document.getElementById('main-button');
-    mainDiv.addEventListener('click', function(){
+    var mainButton = document.getElementById('main-button');
+    mainButton.addEventListener('click', function(){
         this.children.item(0).classList.toggle('fa-times');
         this.classList.toggle('open');
     });
@@ -44,7 +44,7 @@
             }
         }
     }
-
+ 
     msn.addEventListener('click', handleClick);
     msn.addEventListener('touchstart', handleClick);
     closeBtn.addEventListener('click', handleClick);
@@ -52,22 +52,20 @@
 <!-- Footer End -->
 <div class="wrapper">
     <div id="main-div">
-    <div id="main-button" class="tooltip--left wave" data-tooltip="Escríbanos">
-        <i class="fas fa-comments"></i>
-    </div>
-        <a class="tooltip--left telegram-color" id="btn-abrir-popup" data-tooltip="E-mail"><i class="far fa-envelope"></i></a>
+        <div id="main-button" class="tooltip--left wave" data-tooltip="Escríbanos">
+            <i class="fas fa-comments"></i>
+        </div>
         <a target="_blanck" href="https://wa.me/542612455960" class="tooltip--left whatsapp-color" data-tooltip="WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
 </div>
   <!-- formulario de contacto-->
-<div class="overlay" id="overlay">
+<!-- <div class="overlay" id="overlay">
     <div class="popup" id="popup">
         <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fa fa-times"></i></a>
         <div class="title text-center">
             <h6 class="title-primary" id="precios">Contacto</h6>
             <h3 class="title-blue">Envianos un e-mail</h3>
         </div>
-        <!-- Formulario -->
         <form method="post" name="contacto" id ="newsletterForm" role="form">
             <div class="col-md-6">
                 <input name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre" required />
@@ -86,6 +84,5 @@
                 <button type="submit" class="contact-button">Enviar Mensaje</button>
             </div>
         </form>
-    <!-- Formulario End -->
     </div>
-</div>
+</div> -->
