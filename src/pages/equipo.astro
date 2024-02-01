@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import NuestroEquipo from '../components/NuestroEquipo.vue';
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import NuestroEquipo from '@/components/NuestroEquipo.vue';
 import { slide, fade } from "astro:transitions";
+const background="assets/images/fondo-equipo.webp";
 ---
 <Layout
     title="ManejoWeb - Equipo de expertos"
@@ -13,7 +14,7 @@ import { slide, fade } from "astro:transitions";
     bodyClass="body-equipo"
     >
     
-    <Hero background="assets/images/fondo-equipo.webp">
+    <Hero background={background}>
         <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Nuestro <em>equipo de trabajo</em> </h1>
         <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Nos presentamos para que nos conozcan mejor y vean nuestro trabajo.</p>
         <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>

@@ -6,13 +6,10 @@ interface Props {
 const { background } = Astro.props;
 ---
 <!-- Hero Start -->
-<section class="hero" style=`
-    background: url(${background});
-    background-size: cover;
-    overflow: hidden;
-    position: relative;
-    z-index: 0;`
-    >
+<section class="hero">
+    <img src={background} 
+        class="backgroundImage"
+    /> 
     <div class="container">
         <div class="row">
             <div class="col-12 offset-md-1 col-md-11">
@@ -32,3 +29,12 @@ const { background } = Astro.props;
     <div class="texture"></div>
 </section>
 <!-- Hero End -->
+<style>
+    .backgroundImage{
+        position: absolute;
+        z-index: -1;
+        min-width: -webkit-fill-available;
+        width: max-content;
+        height: 100%;
+    }
+</style>

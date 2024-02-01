@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import ClientesActuales from '../components/ClientesActuales.vue';
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import ClientesActuales from '@/components/ClientesActuales.vue';
 import { slide, fade } from "astro:transitions";
+const background="assets/images/fondo-clientes.webp";
 ---
 <Layout
     title="ManejoWeb - Nuestros clientes"
@@ -13,7 +14,7 @@ import { slide, fade } from "astro:transitions";
     bodyClass="body-clientes"
     >
     
-    <Hero background="assets/images/fondo-clientes.webp">
+    <Hero background={background}>
         <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" ><em>Nuestros</em> clientes </h1>
         <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Conozcan los negocios y empresas que actualmente trabajan con nosotros.</p>
         <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>

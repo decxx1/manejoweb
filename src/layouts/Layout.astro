@@ -1,9 +1,9 @@
 ---
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import Head from '../components/Head.astro';
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import Head from '@/components/Head.astro';
 import { ViewTransitions } from 'astro:transitions';
-import BotonesContacto from '../components/BotonesContacto.vue';
+import BotonesContacto from '@/components/BotonesContacto.vue';
 
 interface Props {
 	title: string;
@@ -20,7 +20,7 @@ const {
 	metaTitle,
 	metaDescription,
 	metaImg,
-	bodyClass
+	bodyClass,
 } = Astro.props;
 
 ---
@@ -33,6 +33,20 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		
+		<!-- Plugins Stylesheets -->
+		<link rel="stylesheet" href="assets/css/style2.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/all.min.css"/>
+		<link rel="stylesheet" href="assets/css/bootstrap.css">
+		<link rel="stylesheet" href="assets/css/swiper/swiper.css">
+		<!-- Template Stylesheet -->
+		<link rel="stylesheet" href="assets/css/style.css">
+		<!-- Responsive Stylesheet -->
+		<link rel="stylesheet" href="assets/css/responsive.css">
+		<!-- Favicon -->
+		<link rel="icon" href="assets/images/faviconx64.png" type="image/png" />
+		<!-- HEAD -->
+		<Head />
 		<!-- Document title -->
 		<title>{title}</title>
 		<link rel="canonical" href={canonical} />
@@ -56,19 +70,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<meta name="twitter:description" content={metaDescription} />
 		<meta name="twitter:url" content={canonical} />
 		<meta name="twitter:image" content={metaImg} />
-		<!-- HEAD -->
-		<Head />
-		<!-- Plugins Stylesheets -->
-		<link rel="stylesheet" href="assets/css/style2.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/all.min.css"/>
-		<link rel="stylesheet" href="assets/css/bootstrap.css">
-		<link rel="stylesheet" href="assets/css/swiper/swiper.css">
-		<!-- Template Stylesheet -->
-		<link rel="stylesheet" href="assets/css/style.css">
-		<!-- Responsive Stylesheet -->
-		<link rel="stylesheet" href="assets/css/responsive.css">
-		<!-- Favicon -->
-		<link rel="icon" href="assets/images/faviconx64.png" type="image/png" />
 		<!-- recaptcha v3 -->
 		<!-- <script defer="defer" src="https://www.google.com/recaptcha/api.js?render=6Le7RCgcAAAAADiRK_NZ3EtONMmj7UqKbq0S3w26"></script> -->
 		<ViewTransitions />
@@ -81,7 +82,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<slot />
 		<!-- Footer Start -->
 		<Footer />
-		<BotonesContacto client:only="vue" transition:persist />
+		<BotonesContacto client:only="vue" />
 		<!--Template Script-->
 		<script src="assets/js/gotop.js" defer="defer" is:inline></script>
 		<!--Popup-->

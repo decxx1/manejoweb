@@ -1,20 +1,21 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import CallToAction from '../components/CallToAction.astro';
-import CardFeatures from '../components/CardFeatures.astro';
-import Featured from '../components/Featured.astro';
-import ElementFeatures from '../components/ElementFeatures.astro';
-import PreciosWeb from '../components/PreciosWeb.vue';
-import RecentPosts from '../components/RecentPosts.astro';
-import RecentPostLeft from '../components/RecentPostLeft.astro';
-import RecentPostRight from '../components/RecentPostRight.astro';
-import Steps from '../components/Steps.astro';
-import StepsNum from '../components/StepsNum.astro';
-import Faq from '../components/Faq.astro';
-import Pregunta from '../components/Pregunta.astro';
+import Layout from '@/layouts/Layout.astro';
+import Hero from '@/components/Hero.astro';
+import Services from '@/components/Services.astro';
+import CallToAction from '@/components/CallToAction.astro';
+import CardFeatures from '@/components/CardFeatures.astro';
+import Featured from '@/components/Featured.astro';
+import ElementFeatures from '@/components/ElementFeatures.astro';
+import PreciosWeb from '@/components/PreciosWeb.vue';
+import RecentPosts from '@/components/RecentPosts.astro';
+import RecentPostLeft from '@/components/RecentPostLeft.astro';
+import RecentPostRight from '@/components/RecentPostRight.astro';
+import Steps from '@/components/Steps.astro';
+import StepsNum from '@/components/StepsNum.astro';
+import Faq from '@/components/Faq.astro';
+import Pregunta from '@/components/Pregunta.astro';
 import { slide, fade } from "astro:transitions";
+const background = "assets/images/fondo-web.webp";
 ---
 <Layout
     title="ManejoWeb - Diseño y creación de páginas web"
@@ -25,7 +26,7 @@ import { slide, fade } from "astro:transitions";
     bodyClass=""
     >
     
-    <Hero background="assets/images/fondo-web.webp">
+    <Hero background={background}>
         <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Creamos </br><em>páginas web</em> Para su negocio</h1>
         <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Si tiene un negocio o emprendimiento en Argentina y quiere tener presencia en la web, ha venido al lugar indicado.</p>
         <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
