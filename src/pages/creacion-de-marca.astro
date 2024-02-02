@@ -22,6 +22,7 @@ const background="assets/images/fondo-imagen.webp";
     metaDescription="¿Necesitas un logo atractivo y personalizado para tu marca? Ofrecemos servicios de diseño gráfico, Logos únicos y memorables para tu emprendimiento."
     metaImg="https://manejoweb.com.ar/assets/images/logos-big.png"
     bodyClass="body-imagen"
+    background={background}
     >
     
     <Hero background={background}>
@@ -105,7 +106,8 @@ const background="assets/images/fondo-imagen.webp";
         </div>
     </Featured>
 
-    <LogosSwiper />
+    <LogosSwiper client:visible />
+
     <PreciosRedes
         color={'#ffb600'}
         url={'https://manejoweb.com.ar/api.php?get_planesmarca=1'}

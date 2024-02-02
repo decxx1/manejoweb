@@ -8,27 +8,26 @@
             <div class="swiper-container clients-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo7.png" alt="Logo 7" width="150" >
+                        <img src="assets/images/logotipo7.png" alt="Logo 7" width="150" >
                     </div>
                     <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo1.png" alt="Logo 1" width="150" >
+                        <img src="assets/images/logotipo1.png" alt="Logo 1" width="150" >
                     </div>
                     <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo2.png" alt="Logo 2" width="150" >
+                        <img src="assets/images/logotipo2.png" alt="Logo 2" width="150" >
                     </div>
                     <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo3.png" alt="Logo 3" width="150" >
+                        <img src="assets/images/logotipo3.png" alt="Logo 3" width="150" >
                     </div>
                     <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo4.png" alt="Logo 4" width="150" >
+                        <img src="assets/images/logotipo4.png" alt="Logo 4" width="150" >
                     </div>
                     <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo5.png" alt="Logo 5" width="150" >
+                        <img src="assets/images/logotipo5.png" alt="Logo 5" width="150" >
                     </div>
                     <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo6.png" alt="Logo 6" width="150" >
+                        <img src="assets/images/logotipo6.png" alt="Logo 6" width="150" >
                     </div>
-                    
                 </div>
                 <div class="test-pagination"></div>
             </div>
@@ -36,42 +35,42 @@
     </div>
 </section>
 <!-- Testimonial and Clients End -->
+<script src="assets/js/swiper.min.js" is:inline></script>
 <script>
     // == Clients Slider == //
     if (document.querySelectorAll('.clients-slider').length) {
-    var swiper = new Swiper('.clients-slider', {
-        autoplay: {
-        delay: 2500,
-        disableOnInteraction: true,
-        },
-        speed: 900,
-        loop: true,
-        slidesPerView: 5,
-        breakpoints: {
-        1200: {
-            slidesPerView: 4
-        },
-        992: {
-            slidesPerView: 3
-        },
-        576: {
-            slidesPerView: 2
-        },
-        400: {
-            slidesPerView: 1
-        }
-        }
-    });
-
-    document.querySelectorAll(".clients-slider").forEach(function (slider) {
-        slider.addEventListener("mouseenter", function () {
-        swiper.autoplay.stop();
+        var swiper = new Swiper('.clients-slider', {
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: true,
+            },
+            speed: 900,
+            loop: true,
+            slidesPerView: 5,
+            breakpoints: {
+                1200: {
+                    slidesPerView: 4
+                },
+                992: {
+                    slidesPerView: 3
+                },
+                576: {
+                    slidesPerView: 2
+                },
+                400: {
+                    slidesPerView: 1
+                }
+            }
         });
 
-        slider.addEventListener("mouseleave", function () {
-        swiper.autoplay.start();
+        document.querySelectorAll(".clients-slider").forEach(function (slider) {
+            slider.addEventListener("mouseenter", function () {
+                swiper.autoplay.stop();
+            });
+
+            slider.addEventListener("mouseleave", function () {
+                swiper.autoplay.start();
+            });
         });
-    });
     }
 </script>
-<script src="assets/js/swiper.min.js" is:inline></script>
