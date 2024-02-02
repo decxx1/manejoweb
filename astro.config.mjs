@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
-import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +9,5 @@ export default defineConfig({
     // Ejemplo: Genera `page.html` en lugar de `page/index.html` durante la compilación.
     format: 'file'
   },
-  integrations: [vue(), react()]
+  integrations: [vue()]
 });

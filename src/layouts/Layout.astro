@@ -1,7 +1,6 @@
 ---
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
-import Head from '@/components/Head.astro';
 import { ViewTransitions } from 'astro:transitions';
 import BotonesContacto from '@/components/BotonesContacto.vue';
 import GoTop from '@/components/GoTop.vue';
@@ -29,6 +28,7 @@ const {
 ---
 <script>
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 </script>
 <!doctype html>
 <html lang="es">
@@ -42,15 +42,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<link rel="stylesheet" href="assets/css/style2.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/all.min.css"/>
 		<link rel="stylesheet" href="assets/css/bootstrap.css">
-		<link rel="stylesheet" href="assets/css/swiper/swiper.css">
+		
 		<!-- Template Stylesheet -->
 		<link rel="stylesheet" href="assets/css/style.css">
 		<!-- Responsive Stylesheet -->
 		<link rel="stylesheet" href="assets/css/responsive.css">
 		<!-- Favicon -->
 		<link rel="icon" href="assets/images/faviconx64.png" type="image/png" />
-		<!-- HEAD -->
-		<Head />
+		
 		<!-- Document title -->
 		<title>{title}</title>
 		<link rel="canonical" href={canonical} />
@@ -85,8 +84,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<Footer />
 		<GoTop client:only="vue" />
 		<BotonesContacto client:only="vue" />
-		<!--Alertas-->
-		<script src="assets/js/alertas.js" defer="defer" is:inline></script>
 	</body>
 </html>
 <style is:global>

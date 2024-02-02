@@ -1,0 +1,66 @@
+---
+interface Props {
+	nombre: string;
+	titulo: string;
+	slug: string;
+	color: string;
+}
+
+const { 
+	nombre,
+	titulo,
+	slug,
+	color,
+} = Astro.props;
+import '@/styles/portfolio.css'
+import '@/styles/minibar.portfolio.css'
+import '@/styles/animate.css'
+---
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{nombre} - Portfolio - ManejoWeb</title>
+    <link  rel="icon"   href="../assets/images/faviconx64.png" type="image/png" />
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="../recursos/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/all.min.css"/>
+    <link rel="canonical" href=`https://manejoweb.com.ar/${slug}` />
+    <meta name="title" content=`${nombre} - ${titulo} en ManejoWeb` />
+    <meta name="description" content=`Bienvenido al portfolio de ${nombre}, ${titulo} en ManejoWeb. Aquí encontrarás una selección de sus trabajos más destacados en marketing digital.`/>
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="Mon, 01 Jul 1970 00:00:00 GMT" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <!-- FACEBOOK OPEN GRAPH TAGS -->
+    <meta property="og:title" content=`${nombre} - ${titulo} en ManejoWeb` />
+    <meta property="og:description" content=`Bienvenido al portfolio de ${nombre}, ${titulo} en ManejoWeb. Aquí encontrarás una selección de sus trabajos más destacados en marketing digital.` />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content=`https://manejoweb.com.ar/${slug}` />
+    <meta property="og:image" content="https://manejoweb.com.ar/assets/images/portfolio.jpg" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@" />
+    <meta name="twitter:title" content=`${nombre} - ${titulo} en ManejoWeb` />
+    <meta name="twitter:description" content=`Bienvenido al portfolio de ${nombre}, ${titulo} en ManejoWeb. Aquí encontrarás una selección de sus trabajos más destacados en marketing digital.` />
+    <meta name="twitter:url" content=`https://manejoweb.com.ar/${slug}` />
+    <meta name="twitter:image" content="https://manejoweb.com.ar/assets/images/portfolio.jpg" />
+    <!-- recaptcha v3 -->
+    <script defer="defer" src="https://www.google.com/recaptcha/api.js?render=6Le7RCgcAAAAADiRK_NZ3EtONMmj7UqKbq0S3w26"></script>
+  </head>
+
+  <body class="theme-red">
+      <slot />
+  </body>
+</html>
+<script>
+  import WOW from 'wow.js';
+  new WOW().init();
+</script>
+<style is:global define:vars={{ color: color }}>
+  :root {
+      --theme-red: var(--color);
+  }
+</style>
