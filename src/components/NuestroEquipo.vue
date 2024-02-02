@@ -52,7 +52,7 @@
               </template>
             </div>
             <div class="card-buttons">
-              <a :href="team.slug" data-section="#about" target="_blank"
+              <a :href="team.full_url" data-section="#about" target="_blank"
                 >PORTFOLIO</a
               >
             </div>
