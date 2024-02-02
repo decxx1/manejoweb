@@ -966,47 +966,6 @@ color: #aaa !important;
 }
 
 
-#return-to-top {
-    position: fixed;
-	z-index:3;
-    bottom: 20px;
-    left: calc(50% - 18px);
-    background: rgb(0, 0, 0);
-    background: var(--my-color);
-    width: 35px;
-    height: 35px;
-    display: block;
-    text-decoration: none;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    border-radius: 35px;
-    display: none;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-#return-to-top i {
-    color: #fff;
-    margin: 0;
-    position: relative;
-    left: 0;
-    top: 0;
-    font-size: 19px;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-#return-to-top:hover {
-    background: rgba(0, 0, 0, 0.9);
-}
-#return-to-top:hover i {
-    color: #fff;
-    top: -5px;
-}
 /*Alertas*/
 #pageMessages {
   position: fixed;

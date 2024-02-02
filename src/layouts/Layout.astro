@@ -4,6 +4,7 @@ import Header from '@/components/Header.astro';
 import Head from '@/components/Head.astro';
 import { ViewTransitions } from 'astro:transitions';
 import BotonesContacto from '@/components/BotonesContacto.vue';
+import GoTop from '@/components/GoTop.vue';
 
 interface Props {
 	title: string;
@@ -73,23 +74,17 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<meta name="twitter:description" content={metaDescription} />
 		<meta name="twitter:url" content={canonical} />
 		<meta name="twitter:image" content={metaImg} />
-		<!-- recaptcha v3 -->
-		<!-- <script defer="defer" src="https://www.google.com/recaptcha/api.js?render=6Le7RCgcAAAAADiRK_NZ3EtONMmj7UqKbq0S3w26"></script> -->
 		<ViewTransitions />
 	</head>
 	<body class={bodyClass}>
-		<button onclick="topFunction()" id="return-to-top" title="Go to top"><i class="fas fa-chevron-up"></i></button> 
 		<!-- Header Start -->
 		<Header />
 		<!-- Content Start -->
 		<slot />
 		<!-- Footer Start -->
 		<Footer />
+		<GoTop client:only="vue" />
 		<BotonesContacto client:only="vue" />
-		<!--Template Script-->
-		<script src="assets/js/gotop.js" defer="defer" is:inline></script>
-		<!--Popup-->
-		<!-- <script src="assets/js/popup.js" defer="defer" is:inline></script> -->
 		<!--Alertas-->
 		<script src="assets/js/alertas.js" defer="defer" is:inline></script>
 	</body>
