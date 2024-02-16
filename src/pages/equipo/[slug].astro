@@ -107,12 +107,7 @@ const {
   nacimiento,
   mail
 } = Astro.props
-const fetchCat = await fetch(`https://manejoweb.com.ar/api.php?get_categorias=${id}`);
-const categorias = await fetchCat.json();
-const fetchPortfolio = await fetch(`https://manejoweb.com.ar/api.php?get_portfolio=${id}`);
-const portfolio = await fetchPortfolio.json();
-const fetchServices = await fetch(`https://manejoweb.com.ar/api.php?get_servicios=${id}`);
-const servicios = await fetchServices.json();
+
 ---
 
 <Layout 
@@ -160,20 +155,20 @@ const servicios = await fetchServices.json();
           experiencia_d={experiencia_d}
         />
       </div> <!-- End page Perfil -->
-      { servicios &&
-        <Servicios
-          colorDark={colorDark}
-          colorDarken={colorDarken}
-          servicios={servicios}
-        />
-      }
-      <Portfolio 
-        categorias={categorias}
-        portfolio={portfolio}
-        client:only
+      
+      <Servicios
+        id={id}
+        colorDark={colorDark}
+        colorDarken={colorDarken}
+        client:visible
+      />
+      
+      <Portfolio
+        id={id}
+        client:visible
       />
       <Contacto 
-        client:only="vue"
+        client:visible
         colorDarken={colorDarken}
         myEmail={mail}
       />

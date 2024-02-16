@@ -1,8 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
 import Equipo from '@/components/NuestroEquipo.vue';
-import { slide, fade } from "astro:transitions";
 const background="assets/images/fondo-equipo.webp";
 ---
 <Layout
@@ -14,12 +12,6 @@ const background="assets/images/fondo-equipo.webp";
     bodyClass="body-equipo"
     background={background}
     >
-    
-    <Hero background={background}>
-        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Nuestro <em>equipo de trabajo</em> </h1>
-        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Nos presentamos para que nos conozcan mejor y vean nuestro trabajo.</p>
-        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
-    </Hero>
 
     <Equipo client:load />
     

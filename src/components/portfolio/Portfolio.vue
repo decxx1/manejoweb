@@ -38,29 +38,30 @@ import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
 export default {
     props:{
-      categorias:{
-        type: Object,
+      id:{
+        type: Number,
         required: true
-      },
-      portfolio:{
-        type: Object,
-        required: true
-      },
+      }
     },
     data: () => ({
       currentCategory: '*',
       lightbox: null,
+      categorias: [],
+      portfolio: [],
     }),
-    created() {
-      //console.log(this.portfolio)
-    },
     methods: {
       setCategory(categoria){
         this.currentCategory = categoria;
       },
     },
+    async created() {
+      const fetchCat = await fetch(`https://manejoweb.com.ar/api.php?get_categorias=${this.id}`);
+      this.categorias = await fetchCat.json();
+      const fetchPortfolio = await fetch(`https://manejoweb.com.ar/api.php?get_portfolio=${this.id}`);
+      this.portfolio = await fetchPortfolio.json();
+    },
     mounted() {
-     
+
       if (!this.lightbox) {
         this.lightbox = new PhotoSwipeLightbox({
           gallery: '#galleryID',

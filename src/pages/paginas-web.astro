@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
 import Services from '@/components/Services.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import CardFeatures from '@/components/CardFeatures.astro';
@@ -14,7 +13,6 @@ import Steps from '@/components/Steps.astro';
 import StepsNum from '@/components/StepsNum.astro';
 import Faq from '@/components/Faq.astro';
 import Pregunta from '@/components/Pregunta.astro';
-import { slide, fade } from "astro:transitions";
 const background = "assets/images/fondo-web.webp";
 ---
 <Layout
@@ -26,12 +24,6 @@ const background = "assets/images/fondo-web.webp";
     bodyClass=""
     background={background}
     >
-    
-    <Hero background={background}>
-        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Creamos </br><em>páginas web</em> Para su negocio</h1>
-        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Si tiene un negocio o emprendimiento en Argentina y quiere tener presencia en la web, ha venido al lugar indicado.</p>
-        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
-    </Hero>
 
     <CallToAction>
         <h2 slot="titulo" >¿Necesita una página web para su negocio?</h2>

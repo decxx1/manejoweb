@@ -1,13 +1,12 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
 import Services from '@/components/Services.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import CardFeatures from '@/components/CardFeatures.astro';
 import Featured from '@/components/Featured.astro';
 import ElementFeatures from '@/components/ElementFeatures.astro';
 import About from '@/components/About.astro';
-import { slide, fade } from "astro:transitions";
+
 const background = "assets/images/fondo-marketing.webp";
 ---
 <Layout
@@ -19,12 +18,6 @@ const background = "assets/images/fondo-marketing.webp";
     bodyClass="body-ini"
     background={background}
     >
-
-    <Hero background={background}>
-        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo">Publicidad, diseño y </br><em>marketing digital</em></h1>
-        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Publicidad en internet, diseño de páginas web, creación de contenido y administración de redes sociales, diseño de logos y cartelería</p>
-        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
-    </Hero>
 
     <CallToAction>
         <h2 slot="titulo" >¿Necesita una imagen profesional?</h2>

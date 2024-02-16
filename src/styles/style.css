@@ -21,36 +21,28 @@
 ------------------------------------*/
 :root {
 	--my-color: #ee1515;
-	--my-fondo: url("../images/fondo-web.webp") no-repeat center;
 }
 
 .body-redes {
 	--my-color:#2d88ff;
-	--my-fondo: url("../images/fondo-redes.webp") no-repeat center;
 }
 .body-software {
 	--my-color:#2d88ff;
-	--my-fondo: url("../images/fondo-software.png") no-repeat center;
 }
 .body-imagen {
 	--my-color:#ffb600;
-	--my-fondo:url("../images/fondo-imagen.webp") no-repeat center;
 }
 .body-clientes {
 	--my-color:#fe7a06;
-	--my-fondo:url("../images/fondo-clientes.webp") no-repeat center;
 }
 .body-equipo {
 	--my-color:#06dbfe;
-	--my-fondo:url("../images/fondo-equipo.webp") no-repeat center;
 }
 .body-publicidad {
 	--my-color:#0673fe;
-	--my-fondo:url("../images/fondo-publi.jpg") no-repeat center;
 }
 .body-ini {
 	--my-color:#7752e8;
-	--my-fondo:url("../images/fondo-marketing.webp") no-repeat center;
 }
 /*-----------------------------------
 recaptcha v3 a la izquierda
@@ -258,19 +250,6 @@ form button.btn-primary:hover {
   left: 0;
   z-index: -1;
 }
-
-
-.hero .texture {
-  width: 100%;
-  height: 100%;
-  background-color:black;
-  opacity: 0.4;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
 
 /*-----------------------------------
     1 - CTA
@@ -712,16 +691,13 @@ form button.btn-primary:hover {
 /*-----------------------------------
     1 - Footer
 ------------------------------------*/
-footer {
-  
-}
+
 
 /*-----------------------------------
     1 - Footer Widgets
 ------------------------------------*/
 .footer-widgets {
   padding: 60px 0;
-  background-image: url(../images/poligons.svg);
   background-color: #26264b;
   background-position: center; 
   background-repeat: no-repeat; 

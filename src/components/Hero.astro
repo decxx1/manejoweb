@@ -7,7 +7,10 @@ const { background } = Astro.props;
 ---
 <!-- Hero Start -->
 <section class="hero">
-    <img src={background} 
+    <img
+        loading="eager" 
+        decoding="async"
+        src={background}
         class="backgroundImage"
     /> 
     <div class="container">
@@ -37,10 +40,20 @@ const { background } = Astro.props;
         width: max-content;
         height: 100%;
     }
-    @media screen and (min-width: 1400px) {
+    @media screen and (min-width: 1200px) {
         .backgroundImage{
             width: -moz-available !important;
         }
+    }
+    .texture {
+        width: 100%;
+        height: 100%;
+        background-color:black;
+        opacity: 0.4;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
     }
  
 </style>

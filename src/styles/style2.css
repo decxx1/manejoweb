@@ -6,7 +6,7 @@ body{
 
 .first{
     font-family: 'Poppins', sans-serif;
-    color:#rgb(56, 56, 56);
+    color:rgb(56, 56, 56);
 	text-align: center;
 }
 .first h2 span{
@@ -331,13 +331,13 @@ body{
 	background-color:transparent;
 }
 .social-icons li.facebook a {
-	background: url(icons/facebook.png) no-repeat 0 0;
+	background: url(../images/icons/facebook.png) no-repeat 0 0;
 }
 .social-icons li.facebook a:hover {
 	background-color: #0470e5;
 }
 .social-icons li.insta a {
-	background: url(icons/Instagram.png) no-repeat 0 0;
+	background: url(../images/icons/Instagram.png) no-repeat 0 0;
 }
 .social-icons li.insta a:hover {
 	background-color: #d92983;

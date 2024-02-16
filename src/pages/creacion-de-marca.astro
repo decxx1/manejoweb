@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/Hero.astro';
 import Services from '@/components/Services.astro';
 import CallToAction from '@/components/CallToAction.astro';
 import CardFeatures from '@/components/CardFeatures.astro';
@@ -12,8 +11,7 @@ import Steps3Num from '@/components/Steps3Num.astro';
 import Faq from '@/components/Faq.astro';
 import Pregunta from '@/components/Pregunta.astro';
 import LogosSwiper from '@/components/LogosSwiper.astro';
-import { slide, fade } from "astro:transitions";
-const background="assets/images/fondo-imagen.webp";
+const background = "assets/images/fondo-imagen.webp";
 ---
 <Layout
     title="ManejoWeb - Diseño de imagen"
@@ -24,12 +22,6 @@ const background="assets/images/fondo-imagen.webp";
     bodyClass="body-imagen"
     background={background}
     >
-    
-    <Hero background={background}>
-        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" ><em>Diseño</em> de imagen y creación de <br>contenido para su <span>marca</span></h1>
-        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Diseño y creación de logos, etiquetas, tarjetas de presentación, banners, flyers y más, hecho por diseñadores gráficos.</p>
-        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
-    </Hero>
 
     <CallToAction>
         <h2 slot="titulo" >¿Necesita crear un logo para su negocio?</h2>
