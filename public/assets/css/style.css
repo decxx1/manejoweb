@@ -601,19 +601,20 @@ form button.btn-primary:hover {
 /*-----------------------------------
     1 - Testimonials
 ------------------------------------*/
-.testimonial-and-clients {
-  background-image: url(../images/test-clients-bg.png);
+/* .testimonial-and-clients {
+  background-image: url(../images/page-turner.svg);
   background-color: var(--my-color);
   background-position: center; 
   background-repeat: no-repeat; 
   background-size: center/cover; 
-}
+} */
 .testimonial-and-clients2 {
-  background-image: url(../images/test-clients-bg.png);
+  background-image: url(../images/abstract-paper.svg);
   background-color: #939393;
-  background-position: center; 
-  background-repeat: no-repeat; 
-  background-size: center/cover; 
+  background-position: center;
+  /* background-repeat: no-repeat;  */
+  background-size: cover; 
+  background-blend-mode: soft-light;
 }
 
 .testimonial-and-clients .container h3 {
@@ -720,11 +721,11 @@ footer {
 ------------------------------------*/
 .footer-widgets {
   padding: 60px 0;
-  background-image: url(../images/footer-bg.png);
+  background-image: url(../images/poligons.svg);
   background-color: #26264b;
   background-position: center; 
   background-repeat: no-repeat; 
-  background-size: center/cover; 
+  background-size: cover; 
 }
 .footer-widgets h3 {
 	text-align:center;
