@@ -1,8 +1,6 @@
 ---
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
-import { slide, fade } from "astro:transitions";
-import Hero from '@/components/Hero.astro';
 import { ViewTransitions } from 'astro:transitions';
 import BotonesContacto from '@/components/BotonesContacto.vue';
 import GoTop from '@/components/GoTop.vue';
@@ -44,14 +42,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<!-- Preload Images -->
 		<link rel="preload" as="image" href={background} />
-		
-		<!-- Theme Stylesheets -->
-		<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-		<link rel="stylesheet" type="text/css" href="assets/css/style2.css"/>
-		<link rel="stylesheet" type="text/css" href="assets/css/responsive.css"/> -->
 
 		<!-- Plugins Stylesheets -->
-		<!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/> -->
 		<link rel="stylesheet" type="text/css" href="assets/css/all.min.css"/>
 
 		<!-- Favicon -->
@@ -86,11 +78,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 		<!-- Header Start -->
 		<Header />
 		<!-- Content Start -->
-		<Hero background={background}>
-			<h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo">Publicidad, diseño y </br><em>marketing digital</em></h1>
-			<p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Publicidad en internet, diseño de páginas web, creación de contenido y administración de redes sociales, diseño de logos y cartelería</p>
-			<a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
-		</Hero>
+		
 		<slot />
 		<!-- Footer Start -->
 		<Footer />

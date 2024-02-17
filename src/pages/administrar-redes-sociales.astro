@@ -1,5 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
+import { slide, fade } from "astro:transitions";
+import Hero from '@/components/Hero.astro';
 const background="assets/images/fondo-redes.webp";
 import Services from '@/components/Services.astro';
 import CallToAction from '@/components/CallToAction.astro';
@@ -22,6 +24,12 @@ import Pregunta from '@/components/Pregunta.astro';
     bodyClass="body-redes"
     background={background}
     >
+
+    <Hero background={background}>
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" >Creamos y Administramos<br>tus <em>redes sociales</em></h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Generamos contenido de calidad para que consigas más clientes fidelizados y más ventas.</p>
+        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </Hero>
 
     <CallToAction>
         <h2 slot="titulo" >¿Necesita un community manager para su negocio?</h2>

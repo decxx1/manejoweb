@@ -15,6 +15,12 @@ const background="assets/images/fondo-clientes.webp";
     background={background}
     >
 
+    <Hero background={background}>
+        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo" ><em>Nuestros</em> clientes </h1>
+        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Conozcan los negocios y empresas que actualmente trabajan con nosotros.</p>
+        <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
+    </Hero>
+
     <ClientesActuales client:load />
     
 </Layout>
