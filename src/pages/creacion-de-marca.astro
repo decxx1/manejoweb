@@ -12,7 +12,7 @@ import Steps3 from '@/components/Steps3.astro';
 import Steps3Num from '@/components/Steps3Num.astro';
 import Faq from '@/components/Faq.astro';
 import Pregunta from '@/components/Pregunta.astro';
-import LogosSwiper from '@/components/LogosSwiper.astro';
+import LogosSwiper from '@/components/LogosSwiper.vue';
 const background = "assets/images/fondo-imagen.webp";
 ---
 <Layout
@@ -106,7 +106,7 @@ const background = "assets/images/fondo-imagen.webp";
         </div>
     </Featured>
 
-    <LogosSwiper />
+    <LogosSwiper client:visible />
 
     <PreciosRedes
         color={'#ffb600'}

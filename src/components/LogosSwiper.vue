@@ -1,44 +1,41 @@
-<!-- Services Start -->
-<section class="lazy-background  testimonial-and-clients2">
-    <div class="container">
-        <div class="title">
-            <h3 data-aos="fade-right" data-aos-duration="800">Algunos de nuestros trabajos</h3>
-        </div>
-        <div class="clients">
-            <div class="swiper-container clients-slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo7.png" alt="Logo 7" width="150" >
-                    </div>
-                    <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo1.png" alt="Logo 1" width="150" >
-                    </div>
-                    <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo2.png" alt="Logo 2" width="150" >
-                    </div>
-                    <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo3.png" alt="Logo 3" width="150" >
-                    </div>
-                    <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo4.png" alt="Logo 4" width="150" >
-                    </div>
-                    <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo5.png" alt="Logo 5" width="150" >
-                    </div>
-                    <div class="swiper-slide">
-                        <img loading="lazy" src="assets/images/logotipo6.png" alt="Logo 6" width="150" >
-                    </div>
-                </div>
-                <div class="test-pagination"></div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Testimonial and Clients End -->
+<template>
+  <section class="lazy-background logos-swiper">
+      <div class="container">
+          <div class="title">
+              <h3 data-aos="fade-right" data-aos-duration="800">Algunos de nuestros trabajos</h3>
+          </div>
+          <div class="clients">
+              <div class="swiper-container clients-slider">
+                  <div class="swiper-wrapper">
+                      <div v-for="(logo, index) in logos" :key="index" class="swiper-slide">
+                        <img :src="logo.src" :alt="logo.alt" :width="logo.width" >
+                      </div>
+                  </div>
+                  <div class="test-pagination"></div>
+              </div>
+          </div>
+      </div>
+  </section>
+</template>
 <script>
   import Swiper from "swiper";
     // == Clients Slider == //
-    if (document.querySelectorAll('.clients-slider').length) {
+  export default {
+    data(){
+      return {
+        logos:[
+          {src:"src/images/logos/logotipo1.png",alt:"Logo UcoFit",width:"150"},
+          {src:"src/images/logos/logotipo2.png",alt:"Logo Publicatate",width:"150"},
+          {src:"src/images/logos/logotipo3.png",alt:"Logo Margo Comunicación y Diseño",width:"150"},
+          {src:"src/images/logos/logotipo4.png",alt:"Logo Copias Uco",width:"150"},
+          {src:"src/images/logos/logotipo5.png",alt:"Logo Natalia Carlen",width:"150"},
+          {src:"src/images/logos/logotipo6.png",alt:"Logo Luxo",width:"150"},
+          {src:"src/images/logos/logotipo7.png",alt:"Logo Gabi",width:"150"},
+        ]
+      }
+    },
+    mounted() {
+      if (document.querySelectorAll('.clients-slider').length) {
         var swiper = new Swiper('.clients-slider', {
             autoplay: {
                 delay: 2500,
@@ -72,10 +69,23 @@
                 swiper.autoplay.start();
             });
         });
+      }
     }
+  }
 </script>
-<style>
-    .swiper-container {
+<style scoped>
+.logos-swiper {
+  background-image: url(../images/abstract-paper.svg);
+  background-color: #939393;
+  background-position: center;
+  background-size: cover; 
+  background-blend-mode: soft-light;
+}
+.logos-swiper .container h3 {
+  color: #26264b;
+  margin-top: 15px;
+}
+.swiper-container {
   margin: 0 auto;
   position: relative;
   overflow: hidden;

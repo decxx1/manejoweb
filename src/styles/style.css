@@ -587,23 +587,13 @@ form button.btn-primary:hover {
   background-repeat: no-repeat; 
   background-size: center/cover; 
 } */
-.testimonial-and-clients2 {
-  background-image: url(../images/abstract-paper.svg);
-  background-color: #939393;
-  background-position: center;
-  /* background-repeat: no-repeat;  */
-  background-size: cover; 
-  background-blend-mode: soft-light;
-}
+
 
 .testimonial-and-clients .container h3 {
   color: #26264b;
   margin-top: 15px;
 }
-.testimonial-and-clients2 .container h3 {
-  color: #26264b;
-  margin-top: 15px;
-}
+
 
 .testimonials {
   padding: 95px 0 85px;
