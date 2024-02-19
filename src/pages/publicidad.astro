@@ -1,6 +1,5 @@
 ---
 import Layout from '@/layouts/Layout.astro';
-import { slide, fade } from "astro:transitions";
 import Hero from '@/components/Hero.astro';
 import Services from '@/components/Services.astro';
 import CallToAction from '@/components/CallToAction.astro';
@@ -24,8 +23,8 @@ const background="assets/images/fondo-publi.jpg";
     >
 
     <Hero background={background}>
-        <h1 transition:animate={slide({ duration: '0.5s' })} slot="titulo"><em>Campañas publicitarias</em></br>en internet.</h1>
-        <p transition:animate={fade({ duration: '1s' })} slot="descripcion" >Ofrecemos servicios de publicidad en línea personalizados para aumentar el alcance de tu empresa en internet.</p>
+        <h1 transition:animate="slide" slot="titulo"><em>Campañas publicitarias</em></br>en internet.</h1>
+        <p transition:animate="fade" slot="descripcion" >Ofrecemos servicios de publicidad en línea personalizados para aumentar el alcance de tu empresa en internet.</p>
         <a transition:animate="slide" slot="boton" href="#contact" class="btn btn-primary">Contáctenos</a>
     </Hero>
 
