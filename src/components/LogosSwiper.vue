@@ -24,13 +24,13 @@
     data(){
       return {
         logos:[
-          {src:"src/images/logos/logotipo1.png",alt:"Logo UcoFit",width:"150"},
-          {src:"src/images/logos/logotipo2.png",alt:"Logo Publicatate",width:"150"},
-          {src:"src/images/logos/logotipo3.png",alt:"Logo Margo Comunicación y Diseño",width:"150"},
-          {src:"src/images/logos/logotipo4.png",alt:"Logo Copias Uco",width:"150"},
-          {src:"src/images/logos/logotipo5.png",alt:"Logo Natalia Carlen",width:"150"},
-          {src:"src/images/logos/logotipo6.png",alt:"Logo Luxo",width:"150"},
-          {src:"src/images/logos/logotipo7.png",alt:"Logo Gabi",width:"150"},
+          {src:"assets/images/logos/logotipo1.png",alt:"Logo UcoFit",width:"150"},
+          {src:"assets/images/logos/logotipo2.png",alt:"Logo Publicatate",width:"150"},
+          {src:"assets/images/logos/logotipo3.png",alt:"Logo Margo Comunicación y Diseño",width:"150"},
+          {src:"assets/images/logos/logotipo4.png",alt:"Logo Copias Uco",width:"150"},
+          {src:"assets/images/logos/logotipo5.png",alt:"Logo Natalia Carlen",width:"150"},
+          {src:"assets/images/logos/logotipo6.png",alt:"Logo Luxo",width:"150"},
+          {src:"assets/images/logos/logotipo7.png",alt:"Logo Gabi",width:"150"},
         ]
       }
     },
