@@ -22,7 +22,7 @@
               </a>
               <div class="img-caption portfolio-caption">
                 <h5 class="text-white">{{ value.titulo }}</h5>
-                <p>{{ value.descripcion }}</p>
+                <p v-html="value.descripcion.replace(/\n/g, '<br>')"></p>
               </div>
             </div>
           </template>
