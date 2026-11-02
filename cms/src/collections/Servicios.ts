@@ -1,6 +1,8 @@
 import type { CollectionConfig } from 'payload'
 
 import { isAuthenticated } from '../access'
+import { legacyIdField } from '../fields'
+import { deployHook } from '../hooks/deploy'
 
 export const Servicios: CollectionConfig = {
   slug: 'servicios',
@@ -16,7 +18,12 @@ export const Servicios: CollectionConfig = {
     update: isAuthenticated,
     delete: isAuthenticated,
   },
+  hooks: {
+    afterChange: [deployHook('portfolio')],
+    afterDelete: [deployHook('portfolio')],
+  },
   fields: [
+    legacyIdField,
     {
       name: 'miembro',
       type: 'relationship',

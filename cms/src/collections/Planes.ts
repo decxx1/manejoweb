@@ -1,6 +1,8 @@
 import type { CollectionConfig } from 'payload'
 
 import { isAuthenticated } from '../access'
+import { legacyIdField } from '../fields'
+import { deployHook } from '../hooks/deploy'
 
 export const Planes: CollectionConfig = {
   slug: 'planes',
@@ -16,7 +18,12 @@ export const Planes: CollectionConfig = {
     update: isAuthenticated,
     delete: isAuthenticated,
   },
+  hooks: {
+    afterChange: [deployHook('web')],
+    afterDelete: [deployHook('web')],
+  },
   fields: [
+    legacyIdField,
     {
       name: 'titulo',
       type: 'text',

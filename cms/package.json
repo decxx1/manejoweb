@@ -10,11 +10,12 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types"
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "export:mariadb": "node --env-file=.env scripts/export-mariadb.mjs",
+    "import:payload": "tsx --env-file=.env scripts/import-payload.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.92.1",
-    "@payloadcms/db-sqlite": "3.92.1",
     "@payloadcms/next": "3.92.1",
     "@payloadcms/richtext-lexical": "3.92.1",
     "@payloadcms/translations": "3.92.1",
@@ -31,6 +32,8 @@
     "@types/node": "22.19.9",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
+    "mysql2": "3.15.3",
+    "tsx": "4.23.15",
     "typescript": "5.7.3"
   },
   "engines": {

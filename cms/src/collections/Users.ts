@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { adminField, isAdmin, isAdminUser, isAuthenticated } from '../access'
+import { legacyIdField } from '../fields'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -28,6 +29,14 @@ export const Users: CollectionConfig = {
       type: 'text',
       required: true,
     },
+    {
+      name: 'usuario',
+      label: 'Usuario PHP',
+      type: 'text',
+      unique: true,
+      index: true,
+    },
+    legacyIdField,
     {
       name: 'roles',
       label: 'Roles',

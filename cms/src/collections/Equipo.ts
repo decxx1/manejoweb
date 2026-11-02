@@ -1,6 +1,8 @@
 import type { CollectionConfig } from 'payload'
 
 import { isAuthenticated, readActivo } from '../access'
+import { legacyIdField } from '../fields'
+import { deployHook } from '../hooks/deploy'
 
 export const Equipo: CollectionConfig = {
   slug: 'equipo',
@@ -15,7 +17,12 @@ export const Equipo: CollectionConfig = {
     update: isAuthenticated,
     delete: isAuthenticated,
   },
+  hooks: {
+    afterChange: [deployHook('portfolio')],
+    afterDelete: [deployHook('portfolio')],
+  },
   fields: [
+    legacyIdField,
     {
       name: 'activo',
       type: 'checkbox',

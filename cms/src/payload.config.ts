@@ -1,5 +1,4 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { sqliteAdapter } from '@payloadcms/db-sqlite'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { es } from '@payloadcms/translations/languages/es'
 import path from 'path'
@@ -16,7 +15,6 @@ import { Trabajos } from './collections/Trabajos'
 import { Users } from './collections/Users'
 import { Sitio } from './globals/Sitio'
 import { migrations } from './migrations'
-import { seedLocal } from './seed'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -45,18 +43,6 @@ const origenes = [...new Set([...origenesBase, ...origenesExtra])]
 
 const databaseUri = (process.env.DATABASE_URI || process.env.DATABASE_URL || '').trim()
 
-function sqliteFileUrl(raw: string): string {
-  const specified = raw.startsWith('file:') ? raw.slice('file:'.length) : './manejoweb.db'
-  const absolute = path.isAbsolute(specified)
-    ? specified
-    : path.resolve(dirname, '..', specified.replace(/^\.\//, ''))
-  return `file:${absolute.replace(/\\/g, '/')}`
-}
-
-const useSqlite =
-  databaseUri.startsWith('file:') ||
-  (!databaseUri.startsWith('postgres') && process.env.NODE_ENV !== 'production')
-
 export default buildConfig({
   serverURL,
   cors: origenes,
@@ -84,25 +70,14 @@ export default buildConfig({
   graphQL: {
     disable: true,
   },
-  db: useSqlite
-    ? sqliteAdapter({
-        client: {
-          url: sqliteFileUrl(databaseUri),
-        },
-        push: true,
-      })
-    : postgresAdapter({
-        pool: {
-          connectionString: databaseUri,
-        },
-        push: false,
-        disableCreateDatabase: true,
-        migrationDir: path.resolve(dirname, 'migrations'),
-        prodMigrations: migrations,
-      }),
-  onInit: async (payload) => {
-    if (!useSqlite) return
-    await seedLocal(payload)
-  },
+  db: postgresAdapter({
+    pool: {
+      connectionString: databaseUri,
+    },
+    push: process.env.NODE_ENV !== 'production',
+    disableCreateDatabase: true,
+    migrationDir: path.resolve(dirname, 'migrations'),
+    prodMigrations: migrations,
+  }),
   sharp,
 })

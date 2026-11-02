@@ -138,6 +138,11 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   nombre: string;
+  usuario?: string | null;
+  /**
+   * Id de la fila en el admin PHP. Lo usa el importador.
+   */
+  legacyId?: number | null;
   /**
    * Admin gestiona usuarios y contenido. Editor solo edita contenido. El primer usuario entra como admin.
    */
@@ -241,6 +246,10 @@ export interface Pagina {
  */
 export interface Plane {
   id: number;
+  /**
+   * Id de la fila en el admin PHP. Lo usa el importador.
+   */
+  legacyId?: number | null;
   titulo: string;
   subtitulo?: string | null;
   /**
@@ -269,6 +278,10 @@ export interface Plane {
  */
 export interface Equipo {
   id: number;
+  /**
+   * Id de la fila en el admin PHP. Lo usa el importador.
+   */
+  legacyId?: number | null;
   /**
    * Si está apagado, el sitio público no lo lista.
    */
@@ -328,6 +341,10 @@ export interface Equipo {
  */
 export interface Trabajo {
   id: number;
+  /**
+   * Id de la fila en el admin PHP. Lo usa el importador.
+   */
+  legacyId?: number | null;
   miembro: number | Equipo;
   titulo: string;
   descripcion?: string | null;
@@ -344,6 +361,10 @@ export interface Trabajo {
  */
 export interface Servicio {
   id: number;
+  /**
+   * Id de la fila en el admin PHP. Lo usa el importador.
+   */
+  legacyId?: number | null;
   miembro: number | Equipo;
   /**
    * Clase de Font Awesome, por ejemplo fas fa-globe.
@@ -454,6 +475,8 @@ export interface PayloadMigration {
  */
 export interface UsersSelect<T extends boolean = true> {
   nombre?: T;
+  usuario?: T;
+  legacyId?: T;
   roles?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -536,6 +559,7 @@ export interface PaginasSelect<T extends boolean = true> {
  * via the `definition` "planes_select".
  */
 export interface PlanesSelect<T extends boolean = true> {
+  legacyId?: T;
   titulo?: T;
   subtitulo?: T;
   precio?: T;
@@ -557,6 +581,7 @@ export interface PlanesSelect<T extends boolean = true> {
  * via the `definition` "equipo_select".
  */
 export interface EquipoSelect<T extends boolean = true> {
+  legacyId?: T;
   activo?: T;
   slug?: T;
   nombre?: T;
@@ -601,6 +626,7 @@ export interface EquipoSelect<T extends boolean = true> {
  * via the `definition` "trabajos_select".
  */
 export interface TrabajosSelect<T extends boolean = true> {
+  legacyId?: T;
   miembro?: T;
   titulo?: T;
   descripcion?: T;
@@ -614,6 +640,7 @@ export interface TrabajosSelect<T extends boolean = true> {
  * via the `definition` "servicios_select".
  */
 export interface ServiciosSelect<T extends boolean = true> {
+  legacyId?: T;
   miembro?: T;
   icono?: T;
   titulo?: T;

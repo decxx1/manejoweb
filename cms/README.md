@@ -2,7 +2,7 @@
 
 CMS headless que reemplaza el admin PHP (`c:\laragon\www\manejoweb\admin`). El panel y la API quedan en `https://admin.manejoweb.com.ar`. Los sitios Astro leen en el build o en el navegador; escribir exige sesión.
 
-Clientes y presupuestos no se migran: no hay colección ni ruta, y el seed local no los incluye.
+Clientes y presupuestos no se migran: no hay colección, ruta ni datos de esas tablas.
 
 ## Versiones
 
@@ -14,7 +14,7 @@ Confirmadas en la documentación y en los `peerDependencies` de Payload 3.92.1 (
 | `@payloadcms/next`, `@payloadcms/db-postgres`, `@payloadcms/richtext-lexical` | 3.92.1 |
 | Next.js | 16.4.4 (`@payloadcms/next` acepta `>=16.3.3 <17`) |
 | React | 19.2.6 |
-| PostgreSQL | 17, solo Coolify. En local se usa SQLite |
+| PostgreSQL | 17. En local, Laragon 17.5. En Coolify, un contenedor aparte |
 | Node en la imagen | 22.23.4 (LTS; Payload pide `^22.23.4`) |
 | TypeScript | 5.7.3 |
 
@@ -33,7 +33,7 @@ Node 24.22.1 o mayor también cumple el motor de Payload. La imagen usa la líne
 | `servicios` | `servicios` | Servicios del perfil de un miembro, no las páginas de marketing |
 | `sitio` (global) | `ajustes` + `equipo_pagina` | Nombre, logo, dirección, teléfono, email, `equipoVisible` |
 
-Lectura pública: `paginas` solo si `publicado`, `equipo` solo si `activo`, el resto del contenido y `media` sin sesión. Altas, cambios y bajas exigen usuario logueado. Usuarios: solo `admin`. En local el seed crea el admin. En Postgres vacío, el primer ingreso en `/admin` crea el primer usuario.
+Lectura pública: `paginas` solo si `publicado`, `equipo` solo si `activo`, el resto del contenido y `media` sin sesión. Altas, cambios y bajas exigen usuario logueado. Usuarios: solo `admin`. `paginas` no tiene tabla en el PHP, así que el import la deja vacía.
 
 ## API
 
@@ -84,9 +84,15 @@ Las fotos relativas hay que prefijarlas con la URL del CMS. `detalles` es `[{ te
 
 CORS y CSRF incluyen `admin.manejoweb.com.ar`, `manejoweb.com.ar`, `mi.manejoweb.com.ar` y localhost (`3000` y `4321`). `CORS_ORIGINS` suma orígenes separados por coma. `serverURL` sale de `NEXT_PUBLIC_SERVER_URL`.
 
-## Local (SQLite)
+## Local (PostgreSQL 17.5 de Laragon)
 
-En esta máquina no uses MariaDB ni Postgres. Payload 3 no soporta MariaDB. El `npm run dev` abre SQLite en `cms/manejoweb.db` (gitignored). Hace falta Node `^22.23.4` o `>=24.22.1`.
+Payload no usa MariaDB. El CMS local habla con el Postgres 17.5 que ya trae Laragon, en `127.0.0.1:5432`, usuario `postgres`. En esta máquina `pg_hba.conf` acepta conexiones locales con `trust`, así que la URI no lleva clave. La base se llama `manejoweb` y hay que crearla vacía:
+
+```powershell
+& C:\laragon\bin\postgresql\pgsql-17.5-3\bin\psql.exe -h 127.0.0.1 -U postgres -d postgres -c "CREATE DATABASE manejoweb OWNER postgres;"
+```
+
+Hace falta Node `^22.23.4` o `>=24.22.1`.
 
 ```powershell
 cd c:\xampp\htdocs\astro\manejoweb\cms
@@ -95,15 +101,21 @@ npm ci
 npm run dev
 ```
 
-Antes de arrancar, en `.env` cambiá `PAYLOAD_SECRET` y `CMS_ADMIN_PASSWORD`. El `.env.example` solo trae placeholders (`cambiar-este-secreto`, `cambiar-esta-clave`). La clave real no se commitea.
+Antes de importar, en `.env` cambiá `PAYLOAD_SECRET` y `CMS_IMPORT_PASSWORD`. El `.env.example` solo trae placeholders. La clave real no se commitea.
 
-Admin: http://localhost:3000/admin  
-Email: `admin@manejoweb.local`  
-Contraseña: el valor de `CMS_ADMIN_PASSWORD` en `cms/.env`.
+El login viejo era usuario y clave. Payload pide email. Cada usuario queda como `usuario@manejoweb.local` (por ejemplo `decxx1@manejoweb.local`) y conserva el nombre. La clave hasheada de PHP no se copia: todos entran con `CMS_IMPORT_PASSWORD` del `.env`. Un import posterior no pisa esa clave si el email ya existe.
 
-El primer arranque crea ese usuario y un seed mínimo: el plan "Sitio inicial", Ana Pérez en equipo, un trabajo, un servicio y el global `sitio` con la página de equipo visible. Si borrás `manejoweb.db`, se vuelven a crear.
+## Exportar MariaDB e importar a Postgres
 
-La web, en otra terminal:
+El origen es la base PHP `u568255035_manejoweb` de MariaDB (Laragon, puerto 3306). No se exportan clientes, presupuestos, hashes de claves, CUIT ni datos de comprobantes. Los archivos salen a `cms/import-data/`, que no se versiona.
+
+```powershell
+cd c:\xampp\htdocs\astro\manejoweb\cms
+npm run export:mariadb
+npm run import:payload
+```
+
+Para repetir la carga en el Postgres de producción, corré el export en esta máquina y después el import con `DATABASE_URI` apuntando al contenedor de Coolify. El JSON no incluye secretos. La web, en otra terminal:
 
 ```powershell
 cd c:\xampp\htdocs\astro\manejoweb
@@ -113,6 +125,17 @@ npm run dev
 
 http://localhost:4321  
 `PUBLIC_CMS_URL` apunta al CMS. Si no está definida, `astro dev` usa `http://localhost:3000` y el build de producción usa `https://admin.manejoweb.com.ar`.
+
+## Webhooks de deploy
+
+Al crear, editar o borrar:
+
+| Colección | Variable |
+| --- | --- |
+| `planes` | `CLOUDFLARE_DEPLOY_HOOK_WEB` |
+| `equipo`, `trabajos`, `servicios` | `CLOUDFLARE_DEPLOY_HOOK_PORTFOLIO` |
+
+Si la variable está vacía, el guardado sigue y el log dice que el hook no está configurado. No hace falta una URL real para probar: levantá un servidor local y poné esa URL en el `.env`. El import pasa `skipDeployHooks` y no los llama.
 
 ## Coolify
 
@@ -131,6 +154,8 @@ Variables:
 | `DATABASE_URI` | `postgresql://USUARIO:CLAVE@HOST:5432/BASE` |
 | `PAYLOAD_SECRET` | secreto largo, distinto en cada entorno |
 | `NEXT_PUBLIC_SERVER_URL` | `https://admin.manejoweb.com.ar` |
+| `CLOUDFLARE_DEPLOY_HOOK_WEB` | webhook del sitio, o vacío |
+| `CLOUDFLARE_DEPLOY_HOOK_PORTFOLIO` | webhook del portfolio, o vacío |
 
 La base tiene que existir y estar vacía (`disableCreateDatabase`). Al primer request en producción, Payload corre `src/migrations` (`prodMigrations`). No apuntes el contenedor a una base que hayas modificado con `push` en desarrollo: Payload se queda esperando una confirmación y el proceso no atiende.
 
@@ -149,4 +174,4 @@ El build de la imagen no se conecta a Postgres. El script corre `next build --ex
 
 `src/lib/cms.js` lee planes y el listado de equipo. Las fichas `equipo/[slug]`, los trabajos, los servicios del perfil y el formulario de contacto siguen en `api.php` hasta la pasada del portfolio (`mi.manejoweb.com.ar` no se tocó).
 
-En local, la home y páginas web muestran el plan "Sitio inicial". Nuestro equipo muestra a Ana Pérez si `sitio.equipoVisible` está activo. El build de producción tiene que definir `PUBLIC_CMS_URL=https://admin.manejoweb.com.ar`.
+En local la home y páginas web muestran los planes importados. La página de equipo sigue el flag `equipoVisible` que vino de `equipo_pagina`. El build de producción tiene que definir `PUBLIC_CMS_URL=https://admin.manejoweb.com.ar`.

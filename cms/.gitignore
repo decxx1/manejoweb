@@ -4,6 +4,7 @@ node_modules/
 .env.*
 !.env.example
 media/
+import-data/
 *.db
 *.db-journal
 *.db-wal
