@@ -7,6 +7,7 @@ import CardFeatures from '@/components/CardFeatures.astro';
 import Featured from '@/components/Featured.astro';
 import ElementFeatures from '@/components/ElementFeatures.astro';
 import About from '@/components/About.astro';
+import PreciosWeb from '@/components/PreciosWeb.vue';
 
 const background = "assets/images/fondo-marketing.webp";
 ---
@@ -81,5 +82,7 @@ const background = "assets/images/fondo-marketing.webp";
     </CallToAction>
 
     <About />
+
+    <PreciosWeb client:load />
  
 </Layout>

@@ -1,4 +1,6 @@
-const CMS_URL = import.meta.env.PUBLIC_CMS_URL || 'https://admin.manejoweb.com.ar'
+const CMS_URL =
+  import.meta.env.PUBLIC_CMS_URL ||
+  (import.meta.env.DEV ? 'http://localhost:3000' : 'https://admin.manejoweb.com.ar')
 
 export function mediaUrl(url) {
   if (!url) return ''
