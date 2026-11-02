@@ -1,0 +1,42 @@
+{
+  "name": "manejoweb-cms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CMS headless de ManejoWeb (Payload 3 + Next.js)",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build --experimental-build-mode compile && cross-env NODE_OPTIONS=--no-deprecation next build --experimental-build-mode generate-env",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "export:mariadb": "node --env-file=.env scripts/export-mariadb.mjs",
+    "import:payload": "tsx --env-file=.env scripts/import-payload.ts"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "3.92.1",
+    "@payloadcms/next": "3.92.1",
+    "@payloadcms/richtext-lexical": "3.92.1",
+    "@payloadcms/translations": "3.92.1",
+    "@payloadcms/ui": "3.92.1",
+    "cross-env": "7.0.3",
+    "graphql": "16.11.0",
+    "next": "16.4.4",
+    "payload": "3.92.1",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "sharp": "0.35.4"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.9",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "mysql2": "3.15.3",
+    "tsx": "4.23.15",
+    "typescript": "5.7.3"
+  },
+  "engines": {
+    "node": "^22.23.4 || >=24.22.1"
+  }
+}

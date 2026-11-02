@@ -42,6 +42,8 @@
 </template>
 
 <script>
+    import { fetchPlanes } from '../lib/cms.js'
+
     export default {
         data() {
             return {
@@ -49,20 +51,11 @@
             }
         },
         async created() {
-            // const isProd = import.meta.env.PROD;
-            // if (isProd) {
-                const response = await fetch('https://manejoweb.com.ar/api.php?get_planesweb=1' );
-                this.planes = await response.json();
-            // }else{
-            //     this.planes = [{
-            //         titulo:"Sitio web",
-            //         subtitulo:"Normal",
-            //         precio: "$20.000",
-            //         pago:"Pago único",
-            //         tipo:"pw",
-            //         detalles_s:{0:"1 año",1:"Diseño personalizado",2:"Temática del cliente",3:"Personalización completa",4:"Dominio",5:"Certificado SSL",6:"Ancho de banda sin medición"}
-            //     }]
-            // }
+            try {
+                this.planes = await fetchPlanes('paginas-web')
+            } catch {
+                this.planes = []
+            }
         },
     }
 </script>
