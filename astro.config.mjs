@@ -9,5 +9,8 @@ export default defineConfig({
     // Ejemplo: Genera `page.html` en lugar de `page/index.html` durante la compilación.
     format: 'file'
   },
+  redirects: {
+    "/clientes": "/",
+  },
   integrations: [vue()]
 });

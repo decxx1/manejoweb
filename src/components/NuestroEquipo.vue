@@ -84,6 +84,8 @@
 </template>
 
 <script>
+import { fetchEquipoPublico } from "../lib/cms.js";
+
 export default {
   data() {
     return {
@@ -92,17 +94,14 @@ export default {
     };
   },
   async created() {
-    // const isProd = import.meta.env.PROD;
-    // if (isProd) {
-      const response = await fetch(
-        "https://manejoweb.com.ar/api.php?get_equipo=1"
-      );
-      const response2 = await fetch(
-        "https://manejoweb.com.ar/api.php?get_equipo_activo=1"
-      );
-      this.equipo = await response.json();
-      this.activo = await response2.json();
-    // }
+    try {
+      const data = await fetchEquipoPublico();
+      this.equipo = data.equipo;
+      this.activo = data.activo;
+    } catch {
+      this.equipo = [];
+      this.activo = false;
+    }
   },
 };
 </script>
